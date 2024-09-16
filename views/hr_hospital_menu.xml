@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem
+            id="hr_hospital_menu_root"
+            web_icon="odoo_school_library,static/description/icon.png"
+            name="Hospital Management"
+            sequence="10"/>
+
+    <menuitem
+            id="hr_hospital_menu_patients"
+            name="Patients"
+            parent="hr_hospital_menu_root"
+            action="hr_hospital.action_hr_hospital_patient"/>
+
+    <menuitem
+            id="hr_hospital_menu_doctors"
+            name="Doctors"
+            parent="hr_hospital_menu_root"
+            action="hr_hospital.action_hr_hospital_doctor"/>
+
+    <menuitem
+            id="hr_hospital_menu_visit"
+            name="Visit"
+            parent="hr_hospital_menu_root"
+            action="hr_hospital.action_hr_hospital_visit"/>
+</odoo>

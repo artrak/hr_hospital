@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Деревоподібне представлення для моделі Візити -->
+    <record id="view_visit_tree" model="ir.ui.view">
+        <field name="name">Visit List</field>
+        <field name="model">hr_hospital.visit</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="visit_date"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Формове представлення для моделі Візити -->
+    <record id="view_visit_form" model="ir.ui.view">
+        <field name="name">Visit Form</field>
+        <field name="model">hr_hospital.visit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="visit_date"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Дія, що відкриває список Візитів -->
+    <record id="action_hr_hospital_visit" model="ir.actions.act_window">
+        <field name="name">Visits</field>
+        <field name="res_model">hr_hospital.visit</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

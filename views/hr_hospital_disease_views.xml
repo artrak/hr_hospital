@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Деревоподібне представлення для моделі Види захворювань -->
+    <record id="view_disease_tree" model="ir.ui.view">
+        <field name="name">Disease List</field>
+        <field name="model">hr_hospital.disease</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Формове представлення для моделі Види захворювань -->
+    <record id="view_disease_form" model="ir.ui.view">
+        <field name="name">Disease Form</field>
+        <field name="model">hr_hospital.disease</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Дія, що відкриває список Видів захворювань -->
+    <record id="action_hr_hospital_disease" model="ir.actions.act_window">
+        <field name="name">Diseases</field>
+        <field name="res_model">hr_hospital.disease</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
