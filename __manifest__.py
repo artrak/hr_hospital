@@ -47,4 +47,4 @@
         'static/description/icon.png'
     ],
 
-}
+},
