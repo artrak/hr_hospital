@@ -1,0 +1,25 @@
+<odoo>
+    <data noupdate="0">
+
+        <record id="visit_demo_1" model="hr_hospital.visit">
+            <field name="patient_id" ref="hr_hospital.patient_demo_1"/>
+            <field name="doctor_id" ref="hr_hospital.doctor_demo_1"/>
+            <field name="visit_date">2024-09-01</field>
+            <field name="notes">Routine checkup. Patient is in good health.</field>
+        </record>
+
+        <record id="visit_demo_2" model="hr_hospital.visit">
+            <field name="patient_id" ref="hr_hospital.patient_demo_2"/>
+            <field name="doctor_id" ref="hr_hospital.doctor_demo_2"/>
+            <field name="visit_date">2024-09-02</field>
+            <field name="notes">Patient complains of headaches. Prescribed medication.</field>
+        </record>
+
+        <record id="visit_demo_3" model="hr_hospital.visit">
+            <field name="patient_id" ref="hr_hospital.patient_demo_3"/>
+            <field name="doctor_id" ref="hr_hospital.doctor_demo_1"/>
+            <field name="visit_date">2024-09-03</field>
+            <field name="notes">Follow-up visit. Condition improving.</field>
+        </record>
+    </data>
+</odoo>

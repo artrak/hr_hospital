@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="doctor_1" model="hr_hospital.doctor">
+            <field name="name">Dr. Smith</field>
+            <field name="specialty">Cardiologist</field>
+        </record>
+        <record id="doctor_2" model="hr_hospital.doctor">
+            <field name="name">Dr. John</field>
+            <field name="specialty">General Practitioner</field>
+        </record>
+        <record id="doctor_3" model="hr_hospital.doctor">
+            <field name="name">Dr. Emily</field>
+            <field name="specialty">Dermatologist</field>
+        </record>
+    </data>
+</odoo>

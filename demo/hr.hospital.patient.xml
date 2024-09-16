@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="patient_1" model="hr_hospital.patient">
+            <field name="name">Alice</field>
+            <field name="age">30</field>
+            <field name="disease_id" ref="disease_1"/>
+            <field name="doctor_id" ref="doctor_1"/>
+        </record>
+        <record id="patient_2" model="hr_hospital.patient">
+            <field name="name">Bob</field>
+            <field name="age">45</field>
+            <field name="disease_id" ref="disease_2"/>
+            <field name="doctor_id" ref="doctor_2"/>
+        </record>
+        <record id="patient_3" model="hr_hospital.patient">
+            <field name="name">Charlie</field>
+            <field name="age">65</field>
+            <field name="disease_id" ref="disease_3"/>
+            <field name="doctor_id" ref="doctor_3"/>
+        </record>
+    </data>
+</odoo>
