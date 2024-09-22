@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data noupdate="0">
-
         <record id="patient_1" model="hr_hospital.patient">
             <field name="name">Alice</field>
             <field name="age">30</field>

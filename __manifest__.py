@@ -23,9 +23,7 @@
     },
 
     'data': [
-
         'security/ir.model.access.csv',
-
         'views/hr_hospital_doctor_views.xml',
         'views/hr_hospital_patient_views.xml',
         'views/hr_hospital_disease_views.xml',
@@ -33,18 +31,17 @@
         'views/hr_hospital_menu.xml',
     ],
     'demo': [
-        'demo/hr.hospital.disease.xml',
-        'demo/hr.hospital.doctor.xml',
-        'demo/hr.hospital.patient.xml',
-        'demo/hr.hospital.visit.xml',
+        'demo/hr_hospital_disease.xml',
+        'demo/hr_hospital_doctor.xml',
+        'demo/hr_hospital_patient.xml',
+        'demo/hr_hospital_visit.xml',
     ],
 
     'installable': True,
-    'application': False,
+    'application': True,
     'auto_install': False,
 
     'images': [
         'static/description/icon.png'
     ],
-
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data noupdate="0">
-
         <record id="doctor_1" model="hr_hospital.doctor">
             <field name="name">Dr. Smith</field>
             <field name="specialty">Cardiologist</field>
