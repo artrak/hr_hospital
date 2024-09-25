@@ -6,10 +6,8 @@ class Patient(models.Model):
     _description = 'Patient'
 
     name = fields.Char(
-        string='Name',
         required=True)
-    age = fields.Integer(
-        string='Age')
+    age = fields.Integer()
     disease_id = fields.Many2one(
         comodel_name='hr_hospital.disease',
         string='Disease')

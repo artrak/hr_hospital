@@ -14,7 +14,5 @@ class Visit(models.Model):
         string='Doctor',
         required=True)
     visit_date = fields.Date(
-        string='Visit Date',
         required=True)
-    notes = fields.Text(
-        string='Notes')
+    notes = fields.Text()

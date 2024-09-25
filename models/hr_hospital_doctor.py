@@ -6,10 +6,8 @@ class Doctor(models.Model):
     _description = 'Doctor'
 
     name = fields.Char(
-        string='Name',
         required=True)
-    specialty = fields.Char(
-        string='Specialty')
+    specialty = fields.Char()
     patient_ids = fields.One2many(
         comodel_name='hr_hospital.patient',
         inverse_name='doctor_id',

@@ -1,13 +1,7 @@
 {
     'name': 'Hospital Management',
     'summary': 'Module to manage hospital records for doctors and patients',
-    'description': """
-            Hospital Management Module
-            - Manage Doctors
-            - Manage Patients
-            - Manage Diseases
-            - Manage Visits
-        """,
+    # 'description': 'Детальна інформація знаходиться в README.rst',
     'author': 'Artemius',
     'website': 'https://github.com/artrak/hr_hospital/',
     'category': 'Healthcare',
