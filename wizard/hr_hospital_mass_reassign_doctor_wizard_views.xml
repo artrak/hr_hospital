@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_mass_reassign_doctor_wizard" model="ir.ui.view">
+            <field name="name">mass.reassign.doctor.wizard.form</field>
+            <field name="model">mass.reassign.doctor.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Mass Reassign Doctor">
+                    <group>
+                        <field name="doctor_id"/>
+                        <field name="patient_ids" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button string="Reassign Doctor" type="object" name="action_reassign_doctor" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <record id="action_mass_reassign_doctor" model="ir.actions.act_window">
+        <field name="name">Mass Reassign Doctor</field>
+        <field name="res_model">mass.reassign.doctor.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_patient_ids': active_ids}</field>
+    </record>
+
+    <record id="action_mass_reassign_doctor_in_patient_list" model="ir.actions.server">
+        <field name="name">Mass Reassign Doctor</field>
+        <field name="model_id" ref="hr_hospital.model_hr_hospital_patient"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">action = env.ref('mass_reassign_doctor.action_mass_reassign_doctor').read()[0]</field>
+    </record>
+
+</odoo>
