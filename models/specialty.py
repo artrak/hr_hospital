@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models
 
 
 class DoctorSpecialty(models.Model):
@@ -6,4 +6,4 @@ class DoctorSpecialty(models.Model):
     _description = 'Doctor Specialty'
 
     name = fields.Char(string="Specialty Name", required=True)
-    description = fields.Text(string="Description")
+    description = fields.Text()

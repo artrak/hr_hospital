@@ -2,12 +2,13 @@
 <odoo>
     <!-- Деревоподібне представлення для моделі Види захворювань -->
     <record id="view_disease_tree" model="ir.ui.view">
-        <field name="name">Disease List</field>
+        <field name="name">Disease tree</field>
         <field name="model">hr_hospital.disease</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree string="hr_hospital.disease" >
                 <field name="name"/>
                 <field name="description"/>
+                <field name="parent_id" invisible="0"/>
             </tree>
         </field>
     </record>

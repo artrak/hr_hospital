@@ -5,8 +5,16 @@
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
-                <field name="specialty"/>
+                <header>
+                    <button name="%(hr_hospital_action_disease_report_in_doctor_list)d"
+                            string="Report on diseases"
+                            type="action"/>
+                </header>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="specialty_id"/>
+                <field name="is_intern"/>
+                <field name="mentor_id"/>
             </tree>
         </field>
     </record>
@@ -18,8 +26,21 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="specialty"/>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="phone"/>
+                            <field name="gender" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="photo"
+                                   widget="image"
+                                   class="oe_avatar m-0"
+                                   options='{"zoom": true, "preview_image":"avatar_256"}'/>
+                            <field name="specialty_id"/>
+                            <field name="is_intern" />
+                            <field name="mentor_id" />
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -28,6 +49,7 @@
 
     <record id="action_hr_hospital_doctor" model="ir.actions.act_window">
         <field name="name">Doctors</field>
+        <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_hospital.doctor</field>
         <field name="view_mode">tree,form</field>
     </record>

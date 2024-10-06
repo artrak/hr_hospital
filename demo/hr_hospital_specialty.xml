@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+    <!-- Demo data for Doctor Specialties -->
+    <record id="specialty_pediatrics" model="hr_hospital.specialty">
+        <field name="name">Pediatrics</field>
+        <field name="description">Specialized in children's healthcare.</field>
+    </record>
 
-
-    </data>
+    <record id="specialty_general_practice" model="hr_hospital.specialty">
+        <field name="name">General Practice</field>
+        <field name="description">Primary care for all types of patients.</field>
+    </record>
 </odoo>

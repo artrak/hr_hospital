@@ -18,14 +18,22 @@
 
     'data': [
         'security/ir.model.access.csv',
+
+        'wizard/hr_hospital_disease_report_wizard_views.xml',
+        'wizard/hr_hospital_mass_reassign_doctor_wizard_views.xml',
+
+        'views/hr_hospital_disease_views.xml',
+        'views/hr_hospital_diagnosis_views.xml',
+        'views/hr_hospital_specialty_views.xml',
         'views/hr_hospital_doctor_views.xml',
         'views/hr_hospital_patient_views.xml',
-        'views/hr_hospital_disease_views.xml',
         'views/hr_hospital_visit_views.xml',
         'views/hr_hospital_menu.xml',
+
     ],
     'demo': [
         'demo/hr_hospital_disease.xml',
+        'demo/hr_hospital_specialty.xml',
         'demo/hr_hospital_doctor.xml',
         'demo/hr_hospital_patient.xml',
         'demo/hr_hospital_visit.xml',

@@ -6,10 +6,17 @@
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
+                <header>
+                    <button name="%(hr_hospital_personal_doctor_wizard_action)d"
+                            string="Change personal doctor"
+                            type="action"/>
+                </header>
+                <field name="first_name"/>
+                <field name="last_name"/>
                 <field name="age"/>
                 <field name="disease_id"/>
                 <field name="doctor_id"/>
+                <field name="personal_doctor_id"/>
             </tree>
         </field>
     </record>
@@ -22,10 +29,25 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="age"/>
-                        <field name="disease_id"/>
-                        <field name="doctor_id"/>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="phone"/>
+                            <field name="gender" widget="radio"/>
+                            <field name="res_partner_id"/>
+                        </group>
+                        <group>
+                            <field name="photo"
+                                   widget="image"
+                                   class="oe_avatar m-0"
+                                   options="{'zoom': True, 'preview_image': 'avatar_256'}"/>
+                            <field name="passport_details"/>
+                            <field name="contact_person"/>
+                            <field name="doctor_id" />
+                            <field name="res_partner_id"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -38,4 +60,5 @@
         <field name="res_model">hr_hospital.patient</field>
         <field name="view_mode">tree,form</field>
     </record>
+
 </odoo>

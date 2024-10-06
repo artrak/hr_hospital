@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+     <record id="view_disease_report_wizard" model="ir.ui.view">
+        <field name="name">disease.report.wizard.form</field>
+        <field name="model">hr_hospital.disease.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Disease Report Wizard">
+                <group>
+                    <field name="doctor_ids" widget="many2many_tags"/>
+                    <field name="disease_ids" widget="many2many_tags"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button string="Generate Report"
+                            type="object"
+                            name="action_generate_report"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
 
+    <record id="hr_hospital_action_disease_report_in_doctor_list"
+            model="ir.actions.act_window">
+        <field name="name">Disease Report</field>
+        <field name="res_model">hr_hospital.disease.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
-    </data>
+    <record id="action_disease_report_in_doctor_list" model="ir.actions.server">
+        <field name="name">Generate Disease Report</field>
+        <field name="model_id" ref="hr_hospital.model_hr_hospital_doctor"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = env.ref('hr_hospital.action_disease_report').read()[0]</field>
+    </record>
 </odoo>

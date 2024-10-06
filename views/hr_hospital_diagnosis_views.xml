@@ -5,7 +5,6 @@
         <field name="model">hr_hospital.diagnosis</field>
         <field name="arch" type="xml">
             <tree>
-<!--                <field name="name"/>-->
                 <field name="description"/>
                 <field name="is_approved"/>
             </tree>
@@ -20,10 +19,9 @@
             <form>
                 <sheet>
                     <group>
-<!--                        <field name="name"/>-->
                         <field name="description"/>
-                        <field name="disease_id" required="1"/> <!-- Поле вибору захворювання -->
-                        <field name="visit_id" invisible="1"/> <!-- Поле visit_id приховане, автоматично заповнюється -->
+                        <field name="disease_id" required="1"/>
+                        <field name="visit_id" invisible="1"/>
                         <field name="is_approved"/>
                     </group>
                 </sheet>

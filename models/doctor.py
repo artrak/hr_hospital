@@ -1,15 +1,12 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+from odoo import _
 
 
 class Doctor(models.Model):
     _inherit = 'hr_hospital.person'
     _name = 'hr_hospital.doctor'
     _description = 'Doctor'
-
-    name = fields.Char(string='Name', required=True)
-
-    # specialty = fields.Char()
 
     specialty_id = fields.Many2one(
         comodel_name='hr_hospital.specialty',
@@ -33,7 +30,12 @@ class Doctor(models.Model):
     @api.constrains('mentor_id')
     def check_mentor(self):
         for doctor in self:
-            if doctor.mentor_id and doctor.is_intern:
-                raise ValidationError("An intern cannot be selected as a mentor.")
+            if not doctor.mentor_id and doctor.is_intern:
+                raise ValidationError(_(
+                    "An intern cannot be selected as a mentor."))
 
-
+    @api.onchange('is_intern')
+    def _onchange_is_intern(self):
+        for doctor in self:
+            if doctor.is_intern:
+                doctor.mentor_id = "False"
