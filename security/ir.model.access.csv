@@ -9,3 +9,4 @@ access_hr_hospital_diagnosis,hr_hospital.diagnosis,model_hr_hospital_diagnosis,b
 access_hr_hospital_specialty,hr_hospital.specialty,model_hr_hospital_specialty,base.group_user,1,1,1,1
 access_mass_reassign_doctor_wizard,hr_mass.reassign.doctor.wizard,model_hr_hospital_mass_reassign_doctor_wizard,base.group_user,1,1,1,1
 access_hr_hospital_disease_report_wizard,hr_hospital.disease.report.wizard,model_hr_hospital_disease_report_wizard,base.group_user,1,1,1,1
+access_hr_hospital_disease_type_user,hr_hospital.disease.type,model_hr_hospital_disease_type,base.group_user,1,1,1,0

@@ -13,9 +13,13 @@
                 </header>
                 <field name="first_name"/>
                 <field name="last_name"/>
+                <field name="phone"/>
+                <field name="gender"/>
+                <field name="passport_details"/>
+                <field name="contact_person"/>
                 <field name="age"/>
                 <field name="disease_id"/>
-                <field name="doctor_id"/>
+                <field name="doctor_id" string="Doctor" readonly="1"/>
                 <field name="personal_doctor_id"/>
             </tree>
         </field>
@@ -27,6 +31,17 @@
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="show_patient_visits"
+                            string="Show patient visits"
+                            type="object"
+                            icon="fa-list-ul">
+                    </button>
+                    <button name="add_visit"
+                            type="object"
+                            string="Add visit"
+                            icon="fa-plus-square-o" />
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -49,8 +64,32 @@
                             <field name="res_partner_id"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Diagnosis History">
+                            <field name="diagnosis_history_ids">
+                                <tree>
+                                    <field name="disease_id"/>
+                                    <field name="description"/>
+                                    <field name="is_approved"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <!-- Пошук -->
+    <record id="hr_hospital_patient_search" model="ir.ui.view">
+        <field name="name">Patient Search</field>
+        <field name="model">hr_hospital.patient</field>
+        <field name="arch" type="xml">
+            <search string="Patient">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="phone"/>
+            </search>
         </field>
     </record>
 

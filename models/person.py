@@ -7,15 +7,12 @@ class Person(models.AbstractModel):
 
     first_name = fields.Char(required=True)
     last_name = fields.Char(required=True)
-    phone = fields.Char(string='Phone')
+    phone = fields.Char()
     gender = fields.Selection(
         [('male', 'Male'), ('female', 'Female')],
         required=True,
     )
-    photo = fields.Image(
-        max_width=512,
-        max_height=512,
-    )
+    photo = fields.Image()
 
     res_partner_id = fields.Many2one(
         comodel_name='res.partner',

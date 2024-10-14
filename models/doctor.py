@@ -21,6 +21,12 @@ class Doctor(models.Model):
         domain=[('is_intern', '=', False)]
     )
 
+    intern_ids = fields.One2many(
+        comodel_name='hr_hospital.doctor',
+        inverse_name='mentor_id',
+        string='Interns'
+    )
+
     patient_ids = fields.One2many(
         comodel_name='hr_hospital.patient',
         inverse_name='doctor_id',

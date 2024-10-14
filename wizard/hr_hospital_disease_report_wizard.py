@@ -15,18 +15,27 @@ class DiseaseReportWizard(models.TransientModel):
     date_to = fields.Date(string="To", required=True)
 
     def action_generate_report(self):
-        self.ensure_one()
-        domain = [('visit_id.visit_date', '>=', self.date_from),
-                  ('visit_id.visit_date', '<=', self.date_to)]
+        doctor_ids = self.doctor_ids.ids
+        disease_ids = self.disease_ids.ids
 
-        if self.doctor_ids:
-            domain.append(('visit_id.doctor_id', 'in', self.doctor_ids.ids))
+        if not doctor_ids:
+            doctor_ids = self.env['hr_hospital.doctor'].search([]).ids
 
-        if self.disease_ids:
-            domain.append(('disease_id', 'in', self.disease_ids.ids))
+        if not disease_ids:
+            disease_ids = self.env['hr_hospital.disease'].search([]).ids
 
-        diagnoses = self.env['hr_hospital.diagnosis'].search(domain)
-        action = self.env.ref(
-            'hr_hospital.action_hr_hospital_diagnosis').read()[0]
-        action['domain'] = [('id', 'in', diagnoses.ids)]
-        return action
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'List diseases',
+            'res_model': 'hr_hospital.diagnosis',
+            'target': 'new',
+            'view_mode': 'list',
+            'view_type': 'form',
+            'domain': [
+                ["doctor_id", "in", doctor_ids],
+                ["disease_id", "in", disease_ids],
+                ["create_date", ">", self.date_from],
+                ["create_date", "<", self.date_to]
+            ],
+            'context': {'group_by': 'disease_id'},
+        }

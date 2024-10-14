@@ -37,6 +37,7 @@
         'demo/hr_hospital_doctor.xml',
         'demo/hr_hospital_patient.xml',
         'demo/hr_hospital_visit.xml',
+        'demo/hr_hospital_diagnosis.xml',
     ],
 
     'installable': True,

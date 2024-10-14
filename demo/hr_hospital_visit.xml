@@ -1,20 +1,37 @@
 <odoo>
-    <!-- Demo data for Visits -->
-    <record id="visit_ivanov_flu" model="hr_hospital.visit">
+    <record id="demo_visit_1" model="hr_hospital.visit">
         <field name="patient_id" ref="patient_andriy_ivanov"/>
         <field name="doctor_id" ref="doctor_ivan_petrenko"/>
         <field name="scheduled_date">2024-10-05 10:00:00</field>
         <field name="visit_date">2024-10-05 11:00:00</field>
-        <field name="visit_status">completed</field>
-        <field name="notes">Patient recovered well from flu.</field>
+        <field name="visit_status">scheduled</field>
+        <field name="notes">Initial consultation</field>
     </record>
 
-    <record id="visit_kovalenko_covid" model="hr_hospital.visit">
+    <record id="demo_visit_2" model="hr_hospital.visit">
         <field name="patient_id" ref="patient_maryna_kovalenko"/>
         <field name="doctor_id" ref="doctor_olena_shevchenko"/>
-        <field name="scheduled_date">2024-10-10 14:00:00</field>
-        <field name="visit_date">2024-10-10 15:00:00</field>
+        <field name="scheduled_date">2024-10-06 09:00:00</field>
+        <field name="visit_date">2024-10-06 10:00:00</field>
+        <field name="visit_status">completed</field>
+        <field name="notes">Follow-up visit</field>
+    </record>
+
+    <record id="demo_visit_3" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_andriy_ivanov"/>
+        <field name="doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="scheduled_date">2024-10-07 14:00:00</field>
+        <field name="visit_date">2024-10-07 15:00:00</field>
+        <field name="visit_status">canceled</field>
+        <field name="notes">Patient canceled the appointment</field>
+    </record>
+
+    <record id="demo_visit_4" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_maryna_kovalenko"/>
+        <field name="doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="scheduled_date">2024-10-08 12:00:00</field>
+        <field name="visit_date">2024-10-08 13:00:00</field>
         <field name="visit_status">scheduled</field>
-        <field name="notes">Follow-up for COVID-19 recovery.</field>
+        <field name="notes">Routine check-up</field>
     </record>
 </odoo>

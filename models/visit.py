@@ -79,10 +79,10 @@ class Visit(models.Model):
     def _check_active(self):
         for visit in self:
             if not visit.active and visit.diagnosis_ids:
-                raise ValidationError(_("Visits with diagnoses "
-                                      "cannot be archived. "
-                                      "Please remove diagnoses "
-                                      "before archiving."))
+                raise ValidationError(_(
+                    "Visits with diagnoses cannot be archived. "
+                    "Please remove diagnoses before archiving."
+                ))
 
     # Блокувати, щоб не можна було записати одного пацієнта
     # до одного лікаря в один день більше одного разу.
@@ -135,4 +135,5 @@ class Visit(models.Model):
                         visit.doctor_approved = doctor.display_name
                     else:
                         raise ValidationError(_(
-                            "Doctor has already been approved for this visit."))
+                            "Doctor has already been "
+                            "approved for this visit."))

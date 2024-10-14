@@ -1,0 +1,64 @@
+<odoo>
+    <!-- Demo Diagnosis 1 -->
+    <record id="hr_hospital_diagnosis_1" model="hr_hospital.diagnosis">
+        <field name="visit_id" ref="demo_visit_1"/>
+        <field name="doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_flu"/>
+        <field name="patient_id" ref="patient_andriy_ivanov"/>
+        <field name="description">Flu-like symptoms with mild fever and cough.</field>
+        <field name="is_approved">False</field>
+    </record>
+
+    <!-- Demo Diagnosis 2 -->
+    <record id="hr_hospital_diagnosis_2" model="hr_hospital.diagnosis">
+        <field name="visit_id" ref="demo_visit_2"/>
+        <field name="doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_covid"/>
+        <field name="patient_id" ref="patient_maryna_kovalenko"/>
+        <field name="description">Respiratory illness with symptoms of COVID-19, prescribed bed rest and medication.</field>
+        <field name="is_approved">True</field>
+        <field name="doctor_approved">Dr. Olena Shevchenko</field>
+    </record>
+
+    <!-- Demo Diagnosis 3 -->
+    <record id="hr_hospital_diagnosis_3" model="hr_hospital.diagnosis">
+        <field name="visit_id" ref="demo_visit_3"/>
+        <field name="doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_bronchitis"/>
+        <field name="patient_id" ref="patient_andriy_ivanov"/>
+        <field name="description">Bronchitis symptoms observed, antibiotics prescribed.</field>
+        <field name="is_approved">False</field>
+    </record>
+
+    <!-- Demo Diagnosis 4 -->
+    <record id="hr_hospital_diagnosis_4" model="hr_hospital.diagnosis">
+        <field name="visit_id" ref="demo_visit_4"/>
+        <field name="doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_asthma"/>
+        <field name="patient_id" ref="patient_maryna_kovalenko"/>
+        <field name="description">Chronic asthma, ongoing inhaler prescription renewed.</field>
+        <field name="is_approved">True</field>
+        <field name="doctor_approved">Dr. Olena Shevchenko</field>
+    </record>
+
+    <!-- Demo Diagnosis 5 -->
+    <record id="hr_hospital_diagnosis_5" model="hr_hospital.diagnosis">
+        <field name="visit_id" ref="demo_visit_1"/>
+        <field name="doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_flu"/>
+        <field name="patient_id" ref="patient_andriy_ivanov"/>
+        <field name="description">Follow-up on flu, patient showing signs of improvement.</field>
+        <field name="is_approved">False</field>
+    </record>
+
+    <!-- Demo Diagnosis 6 -->
+    <record id="hr_hospital_diagnosis_6" model="hr_hospital.diagnosis">
+        <field name="visit_id" ref="demo_visit_2"/>
+        <field name="doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_asthma"/>
+        <field name="patient_id" ref="patient_maryna_kovalenko"/>
+        <field name="description">Patient experiencing asthma exacerbation, dosage adjusted accordingly.</field>
+        <field name="is_approved">True</field>
+        <field name="doctor_approved">Dr. Olena Shevchenko</field>
+    </record>
+</odoo>

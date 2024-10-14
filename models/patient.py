@@ -1,6 +1,6 @@
+import logging
 from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api
-import logging
 _logger = logging.getLogger(__name__)
 
 
@@ -30,8 +30,28 @@ class Patient(models.Model):
         string='Disease')
 
     doctor_id = fields.Many2one(
-        'hr_hospital.doctor',
+        comodel_name='hr_hospital.doctor',
         string='Person doctor')
+
+    diagnosis_history_ids = fields.One2many(
+        comodel_name='hr_hospital.diagnosis',
+        inverse_name='patient_id',
+        string="Diagnosis History"
+    )
+
+    def add_visit(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Quick create visit',
+            'res_model': 'hr_hospital.visit',
+            'target': 'new',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'context': {
+                'default_patient_id': self.id,
+                'quick_create': True, },
+        }
 
     @api.depends('birth_date')
     def _compute_age(self):
@@ -59,3 +79,32 @@ class Patient(models.Model):
                      f"{self.first_name} {self.last_name}, "
                      f"ID: {self.id}")
         return result
+
+    def open_patient_visit_act_window_calendar(self):
+        action = {
+            'name': 'Patient visit',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hr_hospital.visit',
+            'domain': [('doctor_id', '=', self.personal_doctor_id.id)],
+            'context': {
+                'default_doctor_id': self.personal_doctor_id.id,
+                'default_patient_id': self.id,
+            },
+            'view_mode': 'calendar',
+            'view_id': self.env.ref('hr_hospital.patient_visit_calendar').id,
+        }
+        return action
+
+    def show_patient_visits(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Patient visits',
+            'res_model': 'hr_hospital.visit',
+            'target': 'current',
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'domain': [
+                ["patient_id", "=", self.id],
+            ],
+        }

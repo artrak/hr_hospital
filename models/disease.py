@@ -17,7 +17,7 @@ class Disease(models.Model):
         recursive=True,
         store=True)
 
-    description = fields.Text(string="Description")
+    description = fields.Text()
 
     parent_id = fields.Many2one(
         comodel_name='hr_hospital.disease',
@@ -31,7 +31,15 @@ class Disease(models.Model):
         string='Child Diseases',
     )
 
-    parent_path = fields.Char(index=True, unaccent=False)
+    parent_path = fields.Char(
+        index=True,
+        unaccent=False)
+
+    disease_type_id = fields.Many2one(
+        comodel_name='hr_hospital.disease.type',
+        string='Disease Type',
+        required=False
+    )
 
     @api.constrains('parent_id')        # захист від циклічних посилань
     def _check_parent_id(self):

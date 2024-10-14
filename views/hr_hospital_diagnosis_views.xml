@@ -11,21 +11,20 @@
         </field>
     </record>
 
-    <!-- Form Create Diagnoses -->
-    <record id="view_diagnosis_form" model="ir.ui.view">
-        <field name="name">Diagnosis Form</field>
+    <record id="hr_hospital_diagnosis_pivot" model="ir.ui.view">
+        <field name="name">Diagnosis pivot</field>
         <field name="model">hr_hospital.diagnosis</field>
+        <field name="priority">50</field>
         <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="description"/>
-                        <field name="disease_id" required="1"/>
-                        <field name="visit_id" invisible="1"/>
-                        <field name="is_approved"/>
-                    </group>
-                </sheet>
-            </form>
+            <pivot string="Pivot Diseases"
+                   disable_linking="1"
+                   sample="1"
+                   display_quantity="1">
+                <field name="create_date" interval="year" type="col"/>
+                <field name="create_date" interval="month" type="col"/>
+                <field name="disease_type_id" type="row"/>
+                <field name="disease_id" type="row"/>
+            </pivot>
         </field>
     </record>
 
@@ -33,7 +32,7 @@
     <record id="action_hr_hospital_diagnosis" model="ir.actions.act_window">
         <field name="name">Diagnoses</field>
         <field name="res_model">hr_hospital.diagnosis</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,pivot</field>
     </record>
 
 </odoo>
