@@ -1,0 +1,38 @@
+<odoo>
+    <!-- Деревоподібне представлення для моделі Diagnosis -->
+    <record id="view_diagnosis_tree" model="ir.ui.view">
+        <field name="name">Diagnosis List</field>
+        <field name="model">hr_hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="description"/>
+                <field name="is_approved"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_hospital_diagnosis_pivot" model="ir.ui.view">
+        <field name="name">Diagnosis pivot</field>
+        <field name="model">hr_hospital.diagnosis</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <pivot string="Pivot Diseases"
+                   disable_linking="1"
+                   sample="1"
+                   display_quantity="1">
+                <field name="create_date" interval="year" type="col"/>
+                <field name="create_date" interval="month" type="col"/>
+                <field name="disease_type_id" type="row"/>
+                <field name="disease_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Дія для відкриття списку діагнозів -->
+    <record id="action_hr_hospital_diagnosis" model="ir.actions.act_window">
+        <field name="name">Diagnoses</field>
+        <field name="res_model">hr_hospital.diagnosis</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
+</odoo>

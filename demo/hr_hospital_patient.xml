@@ -1,0 +1,24 @@
+<odoo>
+    <!-- Demo data for Patients -->
+    <record id="patient_andriy_ivanov" model="hr_hospital.patient">
+        <field name="first_name">Andriy</field>
+        <field name="last_name">Ivanov</field>
+        <field name="birth_date">1990-05-15</field>
+        <field name="passport_details">AB123456</field>
+        <field name="contact_person">Petro Ivanov</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_flu"/>
+    </record>
+
+    <record id="patient_maryna_kovalenko" model="hr_hospital.patient">
+        <field name="first_name">Maryna</field>
+        <field name="last_name">Kovalenko</field>
+        <field name="birth_date">1985-07-20</field>
+        <field name="passport_details">XY654321</field>
+        <field name="contact_person">Oksana Kovalenko</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_covid"/>
+    </record>
+</odoo>

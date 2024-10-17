@@ -5,8 +5,19 @@
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
-                <field name="specialty"/>
+                <header>
+<!--                    put into print -->
+<!--                    <button name="%(hr_hospital_action_disease_report_in_doctor_list)d"-->
+<!--                            string="Report on diseases"-->
+<!--                            type="action"/>-->
+                </header>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="phone"/>
+                <field name="gender" widget="toggle"/>
+                <field name="specialty_id"/>
+                <field name="is_intern"/>
+                <field name="mentor_id"/>
             </tree>
         </field>
     </record>
@@ -16,19 +27,110 @@
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+<!--                    put into print -->
+<!--                    <button name="%(hr_hospital_action_disease_report_in_doctor_list)d"-->
+<!--                            string="Report on diseases"-->
+<!--                            type="action"/>-->
+                </header>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="specialty"/>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="phone"/>
+                            <field name="gender" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="photo"
+                                   widget="image"
+                                   class="oe_avatar m-0"
+                                   options='{"zoom": true, "size": [150, 150]}'/>
+                            <field name="specialty_id"/>
+                            <field name="is_intern" />
+                            <field name="mentor_id" />
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Interns">
+                            <field name="intern_ids" mode="kanban">
+                                <kanban>
+                                    <field name="first_name"/>
+                                    <field name="last_name"/>
+                                    <field name="phone"/>
+                                    <field name="specialty_id"/>
+                                    <field name="is_intern"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click o_kanban_record">
+                                                <div class="o_kanban_details">
+                                                    <strong><t t-esc="record.first_name.value"/> <t t-esc="record.last_name.value"/></strong>
+                                                    <div><t t-esc="record.specialty_id.value"/></div>
+                                                    <div><t t-esc="record.phone.value"/></div>
+                                                    <div><small><t t-esc="record.phone.value"/></small></div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+                        <page string="Mentors information" invisible="not is_intern">
+                            <group>
+                                <field name="mentor_id" widget="many2one"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
+    <!-- Пошук -->
+    <record id="hr_hospital_doctor_search" model="ir.ui.view">
+        <field name="name">Doctor Search</field>
+        <field name="model">hr_hospital.doctor</field>
+        <field name="arch" type="xml">
+            <search string="Doctor">
+                <field name="mentor_id"/>
+                <field name="intern_ids"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="hr_hospital_doctor_kanban" model="ir.ui.view">
+        <field name="name">Kanban</field>
+        <field name="model">hr_hospital.doctor</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban"
+                    default_group_by="specialty_id"
+                    quick_create_view="view_visit_form">
+                <field name="first_name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_context oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title"><field name="first_name"/> </strong>
+                                <strong class="o_kanban_record_title"><field name="last_name"/> </strong>
+                                <strong class="o_kanban_record_title"><field name="gender"/></strong>
+                            </div>
+                            <div>
+                                <strong class="o_kanban_record_title"><field name="specialty_id"/> </strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="action_hr_hospital_doctor" model="ir.actions.act_window">
         <field name="name">Doctors</field>
+        <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_hospital.doctor</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
+
 </odoo>
