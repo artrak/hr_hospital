@@ -1,4 +1,5 @@
-from datetime import timedelta
+import random
+from datetime import datetime, timedelta
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 from odoo import _
@@ -56,6 +57,13 @@ class Visit(models.Model):
         inverse_name='visit_id',
         string='Diagnoses'
     )
+
+    def generate_random_date(self):
+        """Generate a random date within a range of 30 days from today."""
+        today = datetime.today()
+        days_offset = random.randint(0, 30)
+        random_date = today + timedelta(days=days_offset)
+        return random_date.strftime('%Y-%m-%d %H:%M:%S')
 
     # Заборона змін для час/дата/лікаря візитів, які вже відбулися
     @api.onchange('visit_date', 'doctor_id', 'visit_status')

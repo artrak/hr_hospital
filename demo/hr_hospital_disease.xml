@@ -1,5 +1,4 @@
 <odoo>
-    <!-- Demo data for Diseases type -->
     <record id="disease_type_infectious" model="hr_hospital.disease.type">
         <field name="name">Infectious Disease</field>
         <field name="description">Diseases caused by organisms such as bacteria, viruses, fungi, or parasites.</field>
@@ -15,7 +14,6 @@
         <field name="description">Diseases caused by abnormalities in genes or chromosomes.</field>
     </record>
 
-    <!-- Demo data for Diseases -->
     <record id="disease_flu" model="hr_hospital.disease">
         <field name="name">Flu</field>
         <field name="description">Viral infection causing fever, chills, and body aches.</field>

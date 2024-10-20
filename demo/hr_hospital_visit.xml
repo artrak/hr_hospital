@@ -34,4 +34,77 @@
         <field name="visit_status">scheduled</field>
         <field name="notes">Routine check-up</field>
     </record>
+
+
+    <record id="demo_visit_5" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_serhiy_bondarenko"/>
+        <field name="doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="scheduled_date">2024-10-09 09:00:00</field>
+        <field name="visit_date">2024-10-09 10:00:00</field>
+        <field name="visit_status">completed</field>
+        <field name="notes">Consultation for flu symptoms</field>
+    </record>
+
+    <record id="demo_visit_6" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_olena_dovgan"/>
+        <field name="doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="scheduled_date">2024-10-10 11:00:00</field>
+        <field name="visit_date">2024-10-10 12:00:00</field>
+        <field name="visit_status">scheduled</field>
+        <field name="notes">Routine check-up</field>
+    </record>
+
+    <record id="demo_visit_7" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_viktor_pavlenko"/>
+        <field name="doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="scheduled_date">2024-10-11 10:00:00</field>
+        <field name="visit_date">2024-10-11 11:00:00</field>
+        <field name="visit_status">scheduled</field>
+        <field name="notes">Follow-up after flu treatment</field>
+    </record>
+
+    <record id="demo_visit_8" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_natalia_tkach"/>
+        <field name="doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="scheduled_date">2024-10-12 14:00:00</field>
+        <field name="visit_date">2024-10-12 15:00:00</field>
+        <field name="visit_status">scheduled</field>
+        <field name="notes">Post-COVID check-up</field>
+    </record>
+
+    <record id="demo_visit_9" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_dmytro_zubko"/>
+        <field name="doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="scheduled_date">2024-10-13 09:00:00</field>
+        <field name="visit_date">2024-10-13 10:00:00</field>
+        <field name="visit_status">scheduled</field>
+        <field name="notes">Flu follow-up visit</field>
+    </record>
+
+    <record id="demo_visit_10" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_iryna_levchenko"/>
+        <field name="doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="scheduled_date">2024-10-14 11:00:00</field>
+        <field name="visit_date">2024-10-14 12:00:00</field>
+        <field name="visit_status">scheduled</field>
+        <field name="notes">Routine check-up</field>
+    </record>
+
+    <record id="demo_visit_11" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_volodymyr_rudenko"/>
+        <field name="doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="scheduled_date">2024-10-15 10:00:00</field>
+        <field name="visit_date">2024-10-15 11:00:00</field>
+        <field name="visit_status">completed</field>
+        <field name="notes">Consultation for flu recovery</field>
+    </record>
+
+    <record id="demo_visit_12" model="hr_hospital.visit">
+        <field name="patient_id" ref="patient_oksana_shevchuk"/>
+        <field name="doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="scheduled_date">2024-10-16 09:00:00</field>
+        <field name="visit_date">2024-10-16 10:00:00</field>
+        <field name="visit_status">scheduled</field>
+        <field name="notes">Post-COVID follow-up</field>
+    </record>
 </odoo>

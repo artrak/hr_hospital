@@ -6,7 +6,7 @@ class DiseaseType(models.Model):
     _description = 'Disease Type'
 
     name = fields.Char(string="Type Name", required=True)
-    description = fields.Text(  )
+    description = fields.Text()
 
     disease_ids = fields.One2many(
         comodel_name='hr_hospital.disease',

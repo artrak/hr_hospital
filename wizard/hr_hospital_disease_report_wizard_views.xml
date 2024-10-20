@@ -46,6 +46,9 @@
                 'res_model': 'hr_hospital.disease.report.wizard',
                 'view_mode': 'form',
                 'target': 'new',
+                'context': {
+                    'default_doctor_ids': [(6, 0, [record.id for record in records])],
+                }
             }
         </field>
     </record>
