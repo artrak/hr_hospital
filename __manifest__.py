@@ -30,6 +30,8 @@
         'views/hr_hospital_visit_views.xml',
         'views/hr_hospital_menu.xml',
 
+        'report/hr_hospital_doctor_report.xml'
+
     ],
     'demo': [
         'demo/hr_hospital_disease.xml',
