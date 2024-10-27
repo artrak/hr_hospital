@@ -1,0 +1,48 @@
+<odoo>
+    <record id="disease_type_infectious" model="a_hospital.disease.type">
+        <field name="name">Infectious Disease</field>
+        <field name="description">Захворювання, викликані такими організмами, як бактерії, віруси, грибки або паразити.</field>
+    </record>
+
+    <record id="disease_type_chronic" model="a_hospital.disease.type">
+        <field name="name">Хронічна хвороба</field>
+        <field name="description">Diseases that persist for a long time or are constantly recurring.</field>
+    </record>
+
+    <record id="disease_type_genetic" model="a_hospital.disease.type">
+        <field name="name">Genetic Disease</field>
+        <field name="description">Diseases caused by abnormalities in genes or chromosomes.</field>
+    </record>
+
+    <record id="disease_flu" model="a_hospital.disease">
+        <field name="name">Flu</field>
+        <field name="description">Viral infection causing fever, chills, and body aches.</field>
+        <field name="disease_type_id" ref="disease_type_infectious"/>
+    </record>
+
+    <record id="disease_covid" model="a_hospital.disease">
+        <field name="name">COVID-19</field>
+        <field name="description">Respiratory illness caused by the SARS-CoV-2 virus.</field>
+        <field name="disease_type_id" ref="disease_type_infectious"/>
+        <field name="parent_id" ref="disease_flu"/>
+    </record>
+
+    <record id="disease_asthma" model="a_hospital.disease">
+        <field name="name">Asthma</field>
+        <field name="description">A chronic condition that affects the airways in the lungs.</field>
+        <field name="disease_type_id" ref="disease_type_chronic"/>
+    </record>
+
+    <record id="disease_cystic_fibrosis" model="a_hospital.disease">
+        <field name="name">Cystic Fibrosis</field>
+        <field name="description">A genetic disorder that affects the lungs and digestive system.</field>
+        <field name="disease_type_id" ref="disease_type_genetic"/>
+    </record>
+
+    <record id="disease_bronchitis" model="a_hospital.disease">
+        <field name="name">Bronchitis</field>
+        <field name="description">Inflammation of the lining of the bronchial tubes, which carry air to and from the lungs.</field>
+        <field name="disease_type_id" ref="disease_type_infectious"/>
+        <field name="parent_id" ref="disease_flu"/>
+    </record>
+</odoo>

@@ -1,0 +1,190 @@
+<odoo>
+    <record id="patient_andriy_ivanov" model="a_hospital.patient">
+        <field name="first_name">Andriy</field>
+        <field name="last_name">Ivanov</field>
+        <field name="birth_date">1990-05-15</field>
+        <field name="passport_details">AB123456</field>
+        <field name="contact_person">Petro Ivanov</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_flu"/>
+    </record>
+
+    <record id="patient_maryna_kovalenko" model="a_hospital.patient">
+        <field name="first_name">Maryna</field>
+        <field name="last_name">Kovalenko</field>
+        <field name="birth_date">1985-07-20</field>
+        <field name="passport_details">XY654321</field>
+        <field name="contact_person">Oksana Kovalenko</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_covid"/>
+    </record>
+
+    <record id="patient_serhiy_bondarenko" model="a_hospital.patient">
+        <field name="first_name">Serhiy</field>
+        <field name="last_name">Bondarenko</field>
+        <field name="birth_date">1992-09-12</field>
+        <field name="passport_details">BC234567</field>
+        <field name="contact_person">Natalia Bondarenko</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_flu"/>
+    </record>
+
+    <record id="patient_olena_dovgan" model="a_hospital.patient">
+        <field name="first_name">Olena</field>
+        <field name="last_name">Dovgan</field>
+        <field name="birth_date">1988-12-04</field>
+        <field name="passport_details">CD345678</field>
+        <field name="contact_person">Iryna Dovgan</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_covid"/>
+    </record>
+
+    <record id="patient_viktor_pavlenko" model="a_hospital.patient">
+        <field name="first_name">Viktor</field>
+        <field name="last_name">Pavlenko</field>
+        <field name="birth_date">1978-04-18</field>
+        <field name="passport_details">EF456789</field>
+        <field name="contact_person">Olha Pavlenko</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_flu"/>
+    </record>
+
+    <record id="patient_natalia_tkach" model="a_hospital.patient">
+        <field name="first_name">Natalia</field>
+        <field name="last_name">Tkach</field>
+        <field name="birth_date">1995-11-03</field>
+        <field name="passport_details">GH567890</field>
+        <field name="contact_person">Vasyl Tkach</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_covid"/>
+    </record>
+
+    <record id="patient_dmytro_zubko" model="a_hospital.patient">
+        <field name="first_name">Dmytro</field>
+        <field name="last_name">Zubko</field>
+        <field name="birth_date">1980-06-21</field>
+        <field name="passport_details">IJ678901</field>
+        <field name="contact_person">Oleh Zubko</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_flu"/>
+    </record>
+
+    <!-- Continue to add more records until reaching 20 -->
+    <record id="patient_iryna_levchenko" model="a_hospital.patient">
+        <field name="first_name">Iryna</field>
+        <field name="last_name">Levchenko</field>
+        <field name="birth_date">1997-01-19</field>
+        <field name="passport_details">KL789012</field>
+        <field name="contact_person">Yaroslav Levchenko</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_covid"/>
+    </record>
+
+    <record id="patient_volodymyr_rudenko" model="a_hospital.patient">
+        <field name="first_name">Volodymyr</field>
+        <field name="last_name">Rudenko</field>
+        <field name="birth_date">1993-03-11</field>
+        <field name="passport_details">MN890123</field>
+        <field name="contact_person">Taras Rudenko</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_flu"/>
+    </record>
+
+    <record id="patient_oksana_shevchuk" model="a_hospital.patient">
+        <field name="first_name">Oksana</field>
+        <field name="last_name">Shevchuk</field>
+        <field name="birth_date">1983-02-25</field>
+        <field name="passport_details">OP901234</field>
+        <field name="contact_person">Anatoliy Shevchuk</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_covid"/>
+    </record>
+
+    <record id="patient_vitalii_dovzhenko" model="a_hospital.patient">
+        <field name="first_name">Vitalii</field>
+        <field name="last_name">Dovzhenko</field>
+        <field name="birth_date">1989-11-22</field>
+        <field name="passport_details">CD678901</field>
+        <field name="contact_person">Andrii Dovzhenko</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_dmytro_leschenko"/>
+        <field name="disease_id" ref="disease_cystic_fibrosis"/>
+    </record>
+
+    <record id="patient_yana_kravchenko" model="a_hospital.patient">
+        <field name="first_name">Yana</field>
+        <field name="last_name">Kravchenko</field>
+        <field name="birth_date">1985-08-29</field>
+        <field name="passport_details">EF987654</field>
+        <field name="contact_person">Olha Kravchenko</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_nataliia_kovalenko"/>
+        <field name="disease_id" ref="disease_bronchitis"/>
+    </record>
+
+    <record id="patient_roman_kolesnik" model="a_hospital.patient">
+        <field name="first_name">Roman</field>
+        <field name="last_name">Kolesnik</field>
+        <field name="birth_date">1994-02-18</field>
+        <field name="passport_details">GH345678</field>
+        <field name="contact_person">Ihor Kolesnik</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_mykola_ivanov"/>
+        <field name="disease_id" ref="disease_flu"/>
+    </record>
+
+    <record id="patient_vira_petriv" model="a_hospital.patient">
+        <field name="first_name">Vira</field>
+        <field name="last_name">Petriv</field>
+        <field name="birth_date">1998-07-11</field>
+        <field name="passport_details">IJ567890</field>
+        <field name="contact_person">Kateryna Petriv</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_ivan_petrenko"/>
+        <field name="disease_id" ref="disease_type_genetic"/>
+    </record>
+
+    <record id="patient_daria_horodetska" model="a_hospital.patient">
+        <field name="first_name">Daria</field>
+        <field name="last_name">Horodetska</field>
+        <field name="birth_date">1987-06-01</field>
+        <field name="passport_details">KL234567</field>
+        <field name="contact_person">Ihor Horodetskyi</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_olena_shevchenko"/>
+        <field name="disease_id" ref="disease_type_chronic"/>
+    </record>
+
+    <record id="patient_mykhailo_stadnyk" model="a_hospital.patient">
+        <field name="first_name">Mykhailo</field>
+        <field name="last_name">Stadnyk</field>
+        <field name="birth_date">1992-10-30</field>
+        <field name="passport_details">OP345678</field>
+        <field name="contact_person">Serhiy Stadnyk</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_dmytro_leschenko"/>
+        <field name="disease_id" ref="disease_type_infectious"/>
+    </record>
+
+    <record id="patient_valentyna_shevchenko" model="a_hospital.patient">
+        <field name="first_name">Valentyna</field>
+        <field name="last_name">Shevchenko</field>
+        <field name="birth_date">1984-09-23</field>
+        <field name="passport_details">MN456789</field>
+        <field name="contact_person">Ivan Shevchenko</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_dmytro_leschenko"/>
+        <field name="disease_id" ref="disease_bronchitis"/>
+    </record>
+
+</odoo>

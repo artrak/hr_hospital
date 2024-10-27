@@ -1,0 +1,42 @@
+<odoo>
+    <!-- Tree view for Diagnosis model -->
+    <record id="view_diagnosis_tree" model="ir.ui.view">
+        <field name="name">Diagnosis List</field>
+        <field name="model">a_hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Display fields description and approval status for diagnoses -->
+                <field name="description"/>
+                <field name="is_approved"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Pivot view for analyzing diagnoses by disease type and disease name -->
+    <record id="a_hospital_diagnosis_pivot" model="ir.ui.view">
+        <field name="name">Diagnosis pivot</field>
+        <field name="model">a_hospital.diagnosis</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <pivot string="Pivot Diseases"
+                   disable_linking="1"
+                   sample="1"
+                   display_quantity="1">
+                <!-- Columns for yearly and monthly creation dates -->
+                <field name="create_date" interval="year" type="col"/>
+                <field name="create_date" interval="month" type="col"/>
+                <!-- Rows for disease type and specific disease -->
+                <field name="disease_type_id" type="row"/>
+                <field name="disease_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Action to open Diagnosis views (tree, form, pivot) -->
+    <record id="action_a_hospital_diagnosis" model="ir.actions.act_window">
+        <field name="name">Diagnoses</field>
+        <field name="res_model">a_hospital.diagnosis</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
+</odoo>

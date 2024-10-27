@@ -1,0 +1,140 @@
+<odoo>
+    <record id="a_hospital_doctor_main_report_paperformat" model="report.paperformat">
+        <field name="name">Report A4</field>
+        <field name="format">A4</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="True"/>
+    </record>
+
+    <record id="a_hospital_doctor_main_report" model="ir.actions.report">
+        <field name="name">Doctor report</field>
+        <field name="model">a_hospital.doctor</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">a_hospital.a_hospital_doctor_report_template</field>
+        <field name="report_file">a_hospital.a_hospital_doctor_report_template</field>
+        <field name="attachment"/>
+        <field name="binding_model_id" ref="model_a_hospital_doctor"/>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <template id="a_hospital_doctor_report_template">
+        <t t-call="web.html_container">
+
+                    <t t-call="web.external_layout">
+                        <main>
+                            <t t-foreach="docs" t-as="doc">
+                            <t t-set="lang" t-value="doc.res_partner_id.lang"/>
+                            <t t-set="doc" t-value="doc.with_context(lang=lang)"/>
+                            <div class="page">
+                            <div name="a_doctor_info" t-att-style="'font-size: 18px; padding: 5px;'">
+                                <strong>Doctor:</strong>
+                                <h2>
+                                    <t t-if="doc.first_name">
+                                        <span t-field="doc.first_name"/>
+                                    </t>
+                                    <t t-if="doc.last_name">
+                                        <span t-field="doc.last_name"/>
+                                    </t>
+
+                                </h2>
+                                <h5><div t-field="doc.specialty_id"/></h5>
+                            </div>
+
+                            <div name="a_doctor_visits">
+                                <t t-set="patient_visits"
+                                            t-value="doc.env['a_hospital.visit'].sudo().search(
+                                                    domain=[('doctor_id', '=', doc.id)], order=('visit_date desc'))"/>
+                                <br/>
+                                <t t-if="patient_visits">
+                                <h4>Patient visits:</h4>
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>N</th>
+                                                <th>Visit date</th>
+                                                <th>Patient</th>
+                                                <th>State</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr t-foreach="patient_visits" t-as="visit" t-enum="visit_index">
+                                                <td><span t-esc="visit_index + 1"/></td>
+                                                <td><span t-field="visit.visit_date"
+                                                          t-options='{"widget": "datetime", "hide_seconds": True}'/></td>
+                                                <td>
+                                                    <span t-field="visit.patient_id.first_name"/>
+                                                    <span t-field="visit.patient_id.last_name"/>
+                                                </td>
+                                                <td><span t-field="visit.visit_status"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </t>
+                            </div>
+
+                            <div name="a_patients">
+                                <br/>
+                                <h4>Patients:</h4>
+                                <table class="table table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th>N</th>
+                                            <th>Patient name</th>
+                                            <th>Gender</th>
+                                            <th>Birthday</th>
+                                            <th>Phone</th>
+                                            <th>State</th>
+                                            <th>Visit date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="patient_visits" t-as="visit" t-enum="visit_index">
+                                            <td><span t-esc="visit_index + 1"/></td>
+                                            <td>
+                                                <span t-field="visit.patient_id.first_name"/>
+                                                <span t-field="visit.patient_id.last_name"/>
+                                            </td>
+                                            <td><span t-field="visit.patient_id.gender"/></td>
+
+                                            <td><span t-field="visit.patient_id.birth_date"/></td>
+
+                                            <td><span t-field="visit.patient_id.phone"/></td>
+
+                                            <td>
+                                                <span t-field="visit.visit_status"
+                                                  t-attf-style="background-color:{{ (
+                                                   '#ffff00' if visit.visit_status == 'scheduled'
+                                                    else '#008000' if visit.visit_status == 'completed'
+                                                    else '#ff0000') }}"/>
+                                            </td>
+
+                                            <td>
+                                                <span t-field="visit.visit_date"
+                                                    t-options='{"widget": "datetime", "hide_seconds": True}'/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="footer">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <span t-esc="context_timestamp(datetime.datetime.today().replace(microsecond=0))"/>
+                                        <span t-field="res_company.city"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                            </t>
+                        </main>
+                    </t>
+
+            </t>
+    </template>
+
+</odoo>

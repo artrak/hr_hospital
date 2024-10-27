@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="a_hospital_patient_visit_read_rule" model="ir.rule">
+            <field name="name">Patient can only view their own visits</field>
+            <field name="model_id" ref="model_a_hospital_visit"/>
+            <field name="global" eval="False"/>
+            <field name="domain_force">[('patient_id.res_partner_id', '=', user.partner_id.id)]</field>
+            <field name="groups" eval="[Command.link(ref('a_hospital.group_a_hospital_patient'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="a_hospital_intern_visit_rule" model="ir.rule">
+            <field name="name">Intern can view and edit their own visits</field>
+            <field name="model_id" ref="model_a_hospital_visit"/>
+            <field name="global" eval="False"/>
+            <field name="domain_force">[('doctor_id.res_partner_id', '=', user.partner_id.id)]</field>
+            <field name="groups" eval="[Command.link(ref('a_hospital.group_a_hospital_doctor_intern'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="a_hospital_doctor_visit_rule" model="ir.rule">
+            <field name="name">Doctor can view and edit their own visits and their interns' visits</field>
+            <field name="model_id" ref="model_a_hospital_visit"/>
+            <field name="global" eval="False"/>
+            <field name="domain_force">['|',
+                ('doctor_id.res_partner_id', '=', user.partner_id.id),
+                ('doctor_id.mentor_id.res_partner_id', '=', user.partner_id.id)
+            ]</field>
+            <field name="groups" eval="[Command.link(ref('a_hospital.group_a_hospital_doctor'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="a_hospital_manager_visit_rule" model="ir.rule">
+            <field name="name">Manager can view all visits</field>
+            <field name="model_id" ref="model_a_hospital_visit"/>
+            <field name="global" eval="False"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[Command.link(ref('a_hospital.group_a_hospital_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="a_hospital_admin_visit_rule" model="ir.rule">
+            <field name="name">Administrator has full rights on visits</field>
+            <field name="model_id" ref="model_a_hospital_visit"/>
+            <field name="global" eval="False"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[Command.link(ref('a_hospital.group_a_hospital_admin'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+
+
+
+
+
+
+
+
+       <record id="a_hospital_patient_visit_read_rule" model="ir.rule">
+            <field name="name">HR Hospital Patient, Doctors, Interns can only view own visits</field>
+            <field name="model_id" ref="model_a_hospital_visit"/>
+            <field name="global" eval="False"/>
+            <field name="domain_force">['|',
+                ('patient_id.res_partner_id', '=', user.partner_id.id),
+                '|', ('doctor_id.res_partner_id', '=', user.partner_id.id),
+                ('doctor_id.mentor_id.res_partner_id', '=', user.partner_id.id),
+                ]</field>
+            <field name="groups" eval="[Command.link(ref('group_a_hospital_patient'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="a_hospital_patient_visit_write_rule" model="ir.rule">
+            <field name="name">HR Hospital Doctors and Interns can write only own visits, and his interns</field>
+            <field name="model_id" ref="model_a_hospital_visit"/>
+            <field name="global" eval="False"/>
+            <field name="domain_force">['|',
+                ('doctor_id.res_partner_id', '=', user.partner_id.id),
+                ('doctor_id.mentor_id.res_partner_id', '=', user.partner_id.id),
+                ]</field>
+            <field name="groups" eval="[Command.link(ref('group_a_hospital_doctor'))]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="a_hospital_patient_visit_rule_manager" model="ir.rule">
+            <field name="name">HR Hospital managers can view and change visits</field>
+            <field name="model_id" ref="model_a_hospital_visit"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[Command.link(ref('group_a_hospital_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="a_hospital_patient_visit_rule_admin" model="ir.rule">
+            <field name="name">HR Hospital administrators have full rights on visits</field>
+            <field name="model_id" ref="model_a_hospital_visit"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[Command.link(ref('group_a_hospital_admin'))]"/>
+        </record>
+
+    </data>
+</odoo>

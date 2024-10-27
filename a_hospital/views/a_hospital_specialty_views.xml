@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree view for listing doctor specialties -->
+    <record id="view_specialty_tree" model="ir.ui.view">
+        <field name="name">specialty.tree</field>
+        <field name="model">a_hospital.specialty</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view for editing and adding specialties -->
+    <record id="view_specialty_form" model="ir.ui.view">
+        <field name="name">Specialty Form</field>
+        <field name="model">a_hospital.specialty</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open Specialty views (tree, form) -->
+    <record id="action_a_hospital_specialty" model="ir.actions.act_window">
+        <field name="name">Specialties</field>
+        <field name="res_model">a_hospital.specialty</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

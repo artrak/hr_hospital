@@ -1,0 +1,51 @@
+<odoo>
+    <record id="doctor_olena_shevchenko" model="a_hospital.doctor">
+        <field name="first_name">Olena</field>
+        <field name="last_name">Shevchenko</field>
+        <field name="specialty_id" ref="specialty_pediatrics"/>
+        <field name="is_intern">0</field>
+        <field name="gender">female</field>
+    </record>
+    <record id="doctor_ivan_petrenko" model="a_hospital.doctor">
+        <field name="first_name">Ivan</field>
+        <field name="last_name">Petrenko</field>
+        <field name="specialty_id" ref="specialty_general_practice"/>
+        <field name="gender">male</field>
+        <field name="is_intern">1</field>
+        <field name="mentor_id" ref="doctor_olena_shevchenko"/>
+    </record>
+
+    <record id="doctor_mykola_ivanov" model="a_hospital.doctor">
+        <field name="first_name">Mykola</field>
+        <field name="last_name">Ivanov</field>
+        <field name="specialty_id" ref="specialty_general_practice"/>
+        <field name="gender">male</field>
+        <field name="is_intern">1</field>
+        <field name="mentor_id" ref="doctor_olena_shevchenko"/>
+    </record>
+
+    <record id="doctor_nataliia_kovalenko" model="a_hospital.doctor">
+        <field name="first_name">Nataliia</field>
+        <field name="last_name">Kovalenko</field>
+        <field name="specialty_id" ref="specialty_pediatrics"/>
+        <field name="gender">female</field>
+        <field name="is_intern">1</field>
+        <field name="mentor_id" ref="doctor_olena_shevchenko"/>
+    </record>
+
+    <record id="doctor_anna_korol" model="a_hospital.doctor">
+        <field name="first_name">Anna</field>
+        <field name="last_name">Korol</field>
+        <field name="specialty_id" ref="specialty_cardiology"/>
+        <field name="gender">female</field>
+        <field name="is_intern">0</field>
+    </record>
+
+    <record id="doctor_dmytro_leschenko" model="a_hospital.doctor">
+        <field name="first_name">Dmytro</field>
+        <field name="last_name">Leschenko</field>
+        <field name="specialty_id" ref="specialty_dermatology"/>
+        <field name="gender">male</field>
+        <field name="is_intern">0</field>
+    </record>
+</odoo>

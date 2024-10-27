@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="category_a_hospital" model="ir.module.category">
+            <field name="name">a_hospital</field>
+            <field name="description">User access levels for the a_hospital</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="group_a_hospital_patient" model="res.groups">
+            <field name="name">Patient</field>
+            <field name="category_id" ref="category_a_hospital"/>
+            <field name="comment">Patient of the a_hospital</field>
+        </record>
+
+        <record id="group_a_hospital_doctor" model="res.groups">
+            <field name="name">Doctor</field>
+            <field name="implied_ids"
+                   eval="[(6, 0, [ref('group_a_hospital_patient')])]"/>
+            <field name="category_id" ref="category_a_hospital"/>
+            <field name="comment">Doctor of the a_hospital</field>
+        </record>
+
+        <record id="group_a_hospital_doctor_intern" model="res.groups">
+            <field name="name">Doctor (intern)</field>
+            <field name="implied_ids"
+                   eval="[(6, 0, [ref('group_a_hospital_doctor')])]"/>
+            <field name="category_id" ref="category_a_hospital"/>
+            <field name="comment">Doctor (intern) of the a_hospital</field>
+        </record>
+
+        <record id="group_a_hospital_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="implied_ids"
+                   eval="[(6, 0, [ref('group_a_hospital_patient'), ref('group_a_hospital_doctor'), ref('group_a_hospital_doctor_intern'),] )]"/>
+            <field name="category_id" ref="category_a_hospital"/>
+            <field name="comment">Manager of the a_hospital</field>
+        </record>
+
+        <record id="group_a_hospital_admin" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="category_a_hospital"/>
+            <field name="implied_ids"
+                   eval="[(6, 0, [ref('group_a_hospital_patient'), ref('group_a_hospital_doctor'), ref('group_a_hospital_doctor_intern'), ref('group_a_hospital_manager'),])]"/>
+            <field name="users" eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"/>
+            <field name="comment">Administrators of the a_hospital</field>
+        </record>
+
+
+    </data>
+</odoo>

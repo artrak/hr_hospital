@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Main menu for Hospital Management -->
+    <menuitem
+        id="a_hospital_menu_root"
+        web_icon="odoo_school_library,static/description/icon.png"
+        name="Hospital Management"
+        sequence="10"/>
+
+    <!-- Submenus for various sections in Hospital Management -->
+    <menuitem
+        id="a_hospital_menu_patients"
+        name="Patients"
+        parent="a_hospital_menu_root"
+        action="a_hospital.action_a_hospital_patient"/>
+
+    <menuitem
+        id="a_hospital_menu_doctors"
+        name="Doctors"
+        parent="a_hospital_menu_root"
+        action="a_hospital.action_a_hospital_doctor"/>
+
+    <menuitem
+        id="a_hospital_menu_visit"
+        name="Visit"
+        parent="a_hospital_menu_root"
+        action="a_hospital.action_a_hospital_visit"/>
+
+    <menuitem
+        id="a_hospital_menu_disease"
+        name="Disease"
+        parent="a_hospital_menu_root"
+        action="a_hospital.action_a_hospital_disease"/>
+
+    <menuitem
+        id="a_hospital_menu_specialty"
+        name="Specialties"
+        parent="a_hospital_menu_root"
+        action="a_hospital.action_a_hospital_specialty"/>
+
+
+</odoo>

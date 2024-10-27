@@ -1,0 +1,744 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* a_hospital
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-21 19:36+0000\n"
+"PO-Revision-Date: 2024-10-21 19:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+msgid "<strong>Doctor:</strong>"
+msgstr "<strong>Лікар:</strong>"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_kanban
+msgid "<strong>Interns:</strong>"
+msgstr "<strong>Інтерни:</strong>"
+
+#. module: a_hospital
+#. odoo-python
+#: code:addons/a_hospital/models/visit.py:0
+#, python-format
+msgid ""
+"A patient cannot have multiple visits with the same doctor on the same day."
+msgstr "Пацієнт не може мати кілька візитів до одного лікаря в один день."
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_mass_reassign_doctor_wizard
+msgid "Add doctor"
+msgstr "Додати лікаря"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_patient_form
+msgid "Add visit"
+msgstr "Додати візит"
+
+#. module: a_hospital
+#: model:res.groups,name:a_hospital.group_a_hospital_admin
+msgid "Administrator"
+msgstr "Адміністратор"
+
+#. module: a_hospital
+#: model:res.groups,comment:a_hospital.group_a_hospital_admin
+msgid "Administrators of the a_hospital"
+msgstr "Адміністратори a_hospital"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__age
+msgid "Age"
+msgstr "Вік"
+
+#. module: a_hospital
+#. odoo-python
+#: code:addons/a_hospital/models/visit.py:0
+#, python-format
+msgid ""
+"An intern cannot be assigned as the initial doctor when the field is already"
+" filled."
+msgstr "Інтерн не може бути призначений як основний лікар, коли це поле вже заповнено."
+
+#. module: a_hospital
+#. odoo-python
+#: code:addons/a_hospital/models/doctor.py:0
+#, python-format
+msgid "An intern cannot be selected as a mentor."
+msgstr "Інтерн не може бути вибраний як наставник."
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__is_approved
+msgid "Approved"
+msgstr "Затверджено"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_visit_search
+msgid "Archived"
+msgstr "Архівовано"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+msgid "Birthday"
+msgstr "День народження"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_disease_report_wizard
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_mass_reassign_doctor_wizard
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: a_hospital
+#: model:ir.model.fields.selection,name:a_hospital.selection__a_hospital_visit__visit_status__canceled
+msgid "Canceled"
+msgstr "Скасовано"
+
+#. module: a_hospital
+#: model:ir.actions.act_window,name:a_hospital.a_hospital_personal_doctor_wizard_action
+msgid "Change Personal Doctor"
+msgstr "Змінити особистого лікаря"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_patient_tree
+msgid "Change personal doctor"
+msgstr "Змінити особистого лікаря"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__child_ids
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_type__disease_ids
+msgid "Child Diseases"
+msgstr "Дитячі захворювання"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__complete_name
+msgid "Complete Name"
+msgstr "Повне ім'я"
+
+#. module: a_hospital
+#: model:ir.model.fields.selection,name:a_hospital.selection__a_hospital_visit__visit_status__completed
+msgid "Completed"
+msgstr "Завершено"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__res_partner_id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__res_partner_id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_person__res_partner_id
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__create_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__create_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__create_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_type__create_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__create_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_mass_reassign_doctor_wizard__create_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__create_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_specialty__create_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__create_uid
+msgid "Created by"
+msgstr "Створено"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__create_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__create_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__create_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_type__create_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__create_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_mass_reassign_doctor_wizard__create_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__create_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_specialty__create_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__birth_date
+msgid "Date of Birth"
+msgstr "Дата народження"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_kanban
+msgid "Delete"
+msgstr "Видалити"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__description
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__description
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_type__description
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_specialty__description
+msgid "Description"
+msgstr "Опис"
+
+#. module: a_hospital
+#: model:ir.actions.act_window,name:a_hospital.action_a_hospital_diagnosis
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__diagnosis_ids
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_visit_form
+msgid "Diagnoses"
+msgstr "Діагнози"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_diagnosis
+msgid "Diagnosis"
+msgstr "Діагноз"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__diagnosis_history_ids
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_patient_form
+msgid "Diagnosis History"
+msgstr "Історія діагнозів"
+
+#. module: a_hospital
+#. odoo-python
+#: code:addons/a_hospital/models/diagnosis.py:0
+#, python-format
+msgid "Diagnosis made by an intern must be approved by the mentor."
+msgstr "Діагноз, встановлений інтерном, повинен бути затверджений наставником."
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__disease_id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__disease_id
+#: model:ir.ui.menu,name:a_hospital.a_hospital_menu_disease
+msgid "Disease"
+msgstr "Хвороба"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_disease_graph
+msgid "Disease Analysis"
+msgstr "Аналіз хвороб"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__name
+msgid "Disease Name"
+msgstr "Назва хвороби"
+
+#. module: a_hospital
+#: model:ir.actions.act_window,name:a_hospital.a_hospital_action_disease_report_in_doctor_list
+msgid "Disease Report"
+msgstr "Звіт про хвороби"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_disease_report_wizard
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_disease_report_wizard
+msgid "Disease Report Wizard"
+msgstr "Майстер звіту про хвороби"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_disease_type
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__disease_type_id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__disease_type_id
+msgid "Disease Type"
+msgstr "Тип хвороби"
+
+#. module: a_hospital
+#: model:ir.actions.act_window,name:a_hospital.action_a_hospital_disease
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__disease_ids
+msgid "Diseases"
+msgstr "Хвороби"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__display_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__display_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__display_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_type__display_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__display_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_mass_reassign_doctor_wizard__display_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__display_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_specialty__display_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__display_name
+msgid "Display Name"
+msgstr "Відображуване ім'я"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_doctor
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__doctor_id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__doctor_id
+#: model:res.groups,name:a_hospital.group_a_hospital_doctor
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_search
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_patient_tree
+msgid "Doctor"
+msgstr "Лікар"
+
+#. module: a_hospital
+#: model:res.groups,name:a_hospital.group_a_hospital_doctor_intern
+msgid "Doctor (intern)"
+msgstr "Лікар (інтерн)"
+
+#. module: a_hospital
+#: model:res.groups,comment:a_hospital.group_a_hospital_doctor_intern
+msgid "Doctor (intern) of the a_hospital"
+msgstr "Лікар (інтерн) лікарні a_hospital"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_specialty
+msgid "Doctor Specialty"
+msgstr "Спеціалізація лікаря"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__doctor_approved
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__doctor_approved
+msgid "Doctor approved"
+msgstr "Лікар затверджений"
+
+#. module: a_hospital
+#. odoo-python
+#: code:addons/a_hospital/models/visit.py:0
+#, python-format
+msgid "Doctor has already been approved for this visit."
+msgstr "Лікаря вже було затверджено для цього візиту."
+
+#. module: a_hospital
+#: model:res.groups,comment:a_hospital.group_a_hospital_doctor
+msgid "Doctor of the a_hospital"
+msgstr "Лікар лікарні a_hospital"
+
+#. module: a_hospital
+#: model:ir.actions.report,name:a_hospital.a_hospital_doctor_main_report
+msgid "Doctor report"
+msgstr "Звіт лікаря"
+
+#. module: a_hospital
+#: model:ir.actions.act_window,name:a_hospital.action_a_hospital_doctor
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__doctor_ids
+#: model:ir.ui.menu,name:a_hospital.a_hospital_menu_doctors
+msgid "Doctors"
+msgstr "Лікарі"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_kanban
+msgid "Edit"
+msgstr "Редагувати"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__contact_person
+msgid "Emergency Contact"
+msgstr "Контакт на випадок екстреної ситуації"
+
+#. module: a_hospital
+#: model:ir.model.fields.selection,name:a_hospital.selection__a_hospital_doctor__gender__female
+#: model:ir.model.fields.selection,name:a_hospital.selection__a_hospital_patient__gender__female
+#: model:ir.model.fields.selection,name:a_hospital.selection__a_hospital_person__gender__female
+msgid "Female"
+msgstr "Жінка"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_disease_search
+msgid "Filters"
+msgstr "Фільтри"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__first_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__first_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_person__first_name
+msgid "First Name"
+msgstr "Ім'я"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__date_from
+msgid "From"
+msgstr "Від"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__gender
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__gender
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_person__gender
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+msgid "Gender"
+msgstr "Стать"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_disease_report_wizard
+msgid "Generate Report"
+msgstr "Створити звіт"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_disease
+msgid "Hospital Disease"
+msgstr "Хвороба лікарні"
+
+#. module: a_hospital
+#: model:ir.ui.menu,name:a_hospital.a_hospital_menu_root
+msgid "Hospital Management"
+msgstr "Управління лікарнею"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_type__id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_mass_reassign_doctor_wizard__id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_specialty__id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__id
+msgid "ID"
+msgstr "ID"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__initial_doctor_visit
+msgid "Initial doctor's visit"
+msgstr "Перший візит до лікаря"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__is_intern
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_kanban
+msgid "Intern"
+msgstr "Інтерн"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__intern_ids
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_doctor_form
+msgid "Interns"
+msgstr "Інтерни"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_kanban
+msgid "Kanban Menu Actions"
+msgstr "Дії меню Канбан"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__last_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__last_name
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_person__last_name
+msgid "Last Name"
+msgstr "Прізвище"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__write_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__write_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__write_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_type__write_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__write_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_mass_reassign_doctor_wizard__write_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__write_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_specialty__write_uid
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__write_uid
+msgid "Last Updated by"
+msgstr "Останній раз оновлено"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__write_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__write_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__write_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_type__write_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__write_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_mass_reassign_doctor_wizard__write_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__write_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_specialty__write_date
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__write_date
+msgid "Last Updated on"
+msgstr "Останнє оновлення"
+
+#. module: a_hospital
+#: model:ir.model.fields.selection,name:a_hospital.selection__a_hospital_doctor__gender__male
+#: model:ir.model.fields.selection,name:a_hospital.selection__a_hospital_patient__gender__male
+#: model:ir.model.fields.selection,name:a_hospital.selection__a_hospital_person__gender__male
+msgid "Male"
+msgstr "Чоловік"
+
+#. module: a_hospital
+#: model:res.groups,name:a_hospital.group_a_hospital_manager
+msgid "Manager"
+msgstr "Менеджер"
+
+#. module: a_hospital
+#: model:res.groups,comment:a_hospital.group_a_hospital_manager
+msgid "Manager of the a_hospital"
+msgstr "Менеджер лікарні a_hospital"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_mass_reassign_doctor_wizard
+msgid "Mass Reassign Doctor Wizard"
+msgstr "Майстер масового перепризначення лікаря"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__mentor_id
+msgid "Mentor"
+msgstr "Наставник"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_doctor_form
+msgid "Mentors information"
+msgstr "Інформація про наставників"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__notes
+msgid "Notes"
+msgstr "Нотатки"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_disease_graph
+msgid "Number of Diseases"
+msgstr "Кількість хвороб"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__parent_id
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_disease_form
+msgid "Parent Disease"
+msgstr "Батьківська хвороба"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease__parent_path
+msgid "Parent Path"
+msgstr "Шлях батьківської категорії"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__passport_details
+msgid "Passport Details"
+msgstr "Деталі паспорта"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_patient
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__patient_id
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__patient_id
+#: model:res.groups,name:a_hospital.group_a_hospital_patient
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_patient_search
+msgid "Patient"
+msgstr "Пацієнт"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_visit
+msgid "Patient Visit"
+msgstr "Візит пацієнта"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+msgid "Patient name"
+msgstr "Ім'я пацієнта"
+
+#. module: a_hospital
+#: model:res.groups,comment:a_hospital.group_a_hospital_patient
+msgid "Patient of the a_hospital"
+msgstr "Пацієнт лікарні a_hospital"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_visit_search
+msgid "Patient visit"
+msgstr "Візит пацієнта"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+msgid "Patient visits:"
+msgstr "Візити пацієнта:"
+
+#. module: a_hospital
+#: model:ir.actions.act_window,name:a_hospital.action_a_hospital_patient
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__patient_ids
+#: model:ir.ui.menu,name:a_hospital.a_hospital_menu_patients
+msgid "Patients"
+msgstr "Пацієнти"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+msgid "Patients:"
+msgstr "Пацієнти:"
+
+#. module: a_hospital
+#: model:ir.model,name:a_hospital.model_a_hospital_person
+msgid "Person"
+msgstr "Особа"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__doctor_id
+msgid "Person doctor"
+msgstr "Лікар особи"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__personal_doctor_id
+msgid "Personal Doctor"
+msgstr "Особистий лікар"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_mass_reassign_doctor_wizard__personal_doctor_id
+msgid "Personal doctor"
+msgstr "Особистий лікар"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__phone
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__phone
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_person__phone
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__photo
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_patient__photo
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_person__photo
+msgid "Photo"
+msgstr "Фото"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_diagnosis_pivot
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_disease_pivot
+msgid "Pivot Diseases"
+msgstr "Зведені хвороби"
+
+#. module: a_hospital
+#: model:ir.actions.server,name:a_hospital.a_hospital_doctor_print_action
+msgid "Print Disease Report"
+msgstr "Друк звіту про хвороби"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_doctor_form
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_doctor_tree
+msgid "Report on diseases"
+msgstr "Звіт про хвороби"
+
+#. module: a_hospital
+#: model:ir.model.fields.selection,name:a_hospital.selection__a_hospital_visit__visit_status__scheduled
+msgid "Scheduled"
+msgstr "Заплановано"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__scheduled_date
+msgid "Scheduled Date & Time"
+msgstr "Запланована дата та час"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_patient_form
+msgid "Show patient visits"
+msgstr "Показати візити пацієнта"
+
+#. module: a_hospital
+#: model:ir.actions.act_window,name:a_hospital.action_a_hospital_specialty
+#: model:ir.ui.menu,name:a_hospital.a_hospital_menu_specialty
+msgid "Specialties"
+msgstr "Спеціальності"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_doctor__specialty_id
+msgid "Specialty"
+msgstr "Спеціальність"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_specialty__name
+msgid "Specialty Name"
+msgstr "Назва спеціальності"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+msgid "State"
+msgstr "Стан"
+
+#. module: a_hospital
+#: model:ir.model.fields,help:a_hospital.field_a_hospital_diagnosis__is_approved
+msgid ""
+"This sign indicates that the given diagnosis,\n"
+"                made by the mentor doctor,\n"
+"                has been verified and approved by his mentor."
+msgstr ""
+"Цей знак вказує, що даний діагноз,\n"
+"                встановлений наставником лікаря,\n"
+"                був перевірений та затверджений його наставником."
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_mass_reassign_doctor_wizard
+msgid ""
+"This wizard add possibility mass redefinition\n"
+"                    of the personal doctor for patients."
+msgstr ""
+"Цей майстер додає можливість масового перепризначення\n"
+"                    особистого лікаря для пацієнтів."
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_report_wizard__date_to
+msgid "To"
+msgstr "До"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_disease_type__name
+msgid "Type Name"
+msgstr "Назва типу"
+
+#. module: a_hospital
+#: model:ir.module.category,description:a_hospital.category_a_hospital
+msgid "User access levels for the a_hospital"
+msgstr "Рівні доступу користувачів для a_hospital"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_diagnosis__visit_id
+#: model:ir.ui.menu,name:a_hospital.a_hospital_menu_visit
+msgid "Visit"
+msgstr "Візит"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__visit_date
+msgid "Visit Date & Time"
+msgstr "Дата та час візиту"
+
+#. module: a_hospital
+#: model:ir.model.fields,field_description:a_hospital.field_a_hospital_visit__visit_status
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_visit_search
+msgid "Visit Status"
+msgstr "Статус візиту"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_doctor_report_template
+msgid "Visit date"
+msgstr "Дата візиту"
+
+#. module: a_hospital
+#: model:ir.actions.act_window,name:a_hospital.action_a_hospital_visit
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_visit_calendar
+msgid "Visits"
+msgstr "Візити"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.a_hospital_visit_pivot
+msgid "Visits Pivot"
+msgstr "Зведення візитів"
+
+#. module: a_hospital
+#. odoo-python
+#: code:addons/a_hospital/models/visit.py:0
+#, python-format
+msgid ""
+"Visits with diagnoses cannot be archived. Please remove diagnoses before "
+"archiving."
+msgstr ""
+"Візити з діагнозами не можуть бути заархівовані. Будь ласка, видаліть діагнози перед архівацією."
+
+#. module: a_hospital
+#. odoo-python
+#: code:addons/a_hospital/models/disease.py:0
+#, python-format
+msgid "You cannot create recursive hierarchy."
+msgstr "Ви не можете створювати рекурсивну ієрархію."
+
+#. module: a_hospital
+#. odoo-python
+#: code:addons/a_hospital/models/visit.py:0
+#, python-format
+msgid "You cannot delete visits with diagnoses."
+msgstr "Ви не можете видалити візити з діагнозами."
+
+#. module: a_hospital
+#. odoo-python
+#: code:addons/a_hospital/models/visit.py:0
+#, python-format
+msgid "You cannot modify the scheduled date or doctor for a completed visit."
+msgstr "Ви не можете змінити заплановану дату або лікаря для завершеного візиту."
+
+#. module: a_hospital
+#: model:ir.module.category,name:a_hospital.category_a_hospital
+msgid "a_hospital"
+msgstr "a_hospital"
+
+#. module: a_hospital
+#: model_terms:ir.ui.view,arch_db:a_hospital.view_disease_tree
+msgid "a_hospital.disease"
+msgstr "a_hospital.disease"

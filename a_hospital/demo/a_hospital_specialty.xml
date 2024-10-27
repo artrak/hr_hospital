@@ -1,0 +1,41 @@
+<odoo>
+    <record id="specialty_pediatrics" model="a_hospital.specialty">
+        <field name="name">Pediatrics</field>
+        <field name="description">Specialized in children's healthcare.</field>
+    </record>
+
+    <record id="specialty_general_practice" model="a_hospital.specialty">
+        <field name="name">General Practice</field>
+        <field name="description">Primary care for all types of patients.</field>
+    </record>
+
+    <record id="specialty_cardiology" model="a_hospital.specialty">
+        <field name="name">Cardiology</field>
+        <field name="description">Specialized in heart diseases and disorders.</field>
+    </record>
+
+    <record id="specialty_dermatology" model="a_hospital.specialty">
+        <field name="name">Dermatology</field>
+        <field name="description">Focused on skin-related issues.</field>
+    </record>
+
+    <record id="specialty_orthopedics" model="a_hospital.specialty">
+        <field name="name">Orthopedics</field>
+        <field name="description">Deals with bone and joint disorders.</field>
+    </record>
+
+    <record id="specialty_neurology" model="a_hospital.specialty">
+        <field name="name">Neurology</field>
+        <field name="description">Specialized in nervous system disorders.</field>
+    </record>
+
+    <record id="specialty_gynecology" model="a_hospital.specialty">
+        <field name="name">Gynecology</field>
+        <field name="description">Specialized in women's reproductive health.</field>
+    </record>
+
+    <record id="specialty_psychiatry" model="a_hospital.specialty">
+        <field name="name">Psychiatry</field>
+        <field name="description">Focused on mental health and emotional well-being.</field>
+    </record>
+</odoo>

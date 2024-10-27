@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree view for displaying a list of patients -->
+    <record id="view_patient_tree" model="ir.ui.view">
+        <field name="name">Patient List</field>
+        <field name="model">a_hospital.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <!-- Button to change the personal doctor of a patient -->
+                    <button name="%(a_hospital_personal_doctor_wizard_action)d"
+                            string="Change personal doctor"
+                            type="action"/>
+                </header>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="phone"/>
+                <field name="gender"/>
+                <field name="passport_details"/>
+                <field name="contact_person"/>
+                <field name="age"/>
+                <field name="disease_id"/>
+                <field name="doctor_id" string="Doctor" readonly="1"/>
+                <field name="personal_doctor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view for detailed patient information and actions -->
+    <record id="view_patient_form" model="ir.ui.view">
+        <field name="name">Patient Form</field>
+        <field name="model">a_hospital.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- Buttons to view and add visits -->
+                    <button name="show_patient_visits"
+                            string="Show patient visits"
+                            type="object"
+                            icon="fa-list-ul">
+                    </button>
+                    <button name="add_visit"
+                            type="object"
+                            string="Add visit"
+                            icon="fa-plus-square-o" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="phone"/>
+                            <field name="gender" widget="radio"/>
+                            <field name="res_partner_id"/>
+                        </group>
+                        <group>
+                            <field name="photo"
+                                   widget="image"
+                                   class="oe_avatar m-0"
+                                   options="{'zoom': True, 'preview_image': 'avatar_256'}"/>
+                            <field name="passport_details"/>
+                            <field name="contact_person"/>
+                            <field name="doctor_id" />
+                            <field name="res_partner_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <!-- Page displaying the patient's diagnosis history -->
+                        <page string="Diagnosis History">
+                            <field name="diagnosis_history_ids">
+                                <tree>
+                                    <field name="disease_id"/>
+                                    <field name="description"/>
+                                    <field name="is_approved"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view for filtering and finding patients -->
+    <record id="a_hospital_patient_search" model="ir.ui.view">
+        <field name="name">Patient Search</field>
+        <field name="model">a_hospital.patient</field>
+        <field name="arch" type="xml">
+            <search string="Patient">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="phone"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action to open Patient views (tree, form) -->
+    <record id="action_a_hospital_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">a_hospital.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
