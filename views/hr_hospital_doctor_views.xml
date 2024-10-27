@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- Tree view for Doctor model to display a list of doctors -->
     <record id="view_doctor_tree" model="ir.ui.view">
         <field name="name">Doctor List</field>
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <tree>
                 <header>
-<!--                    put into print -->
+                    <!-- Action button to generate a report on diseases -->
                     <button name="%(hr_hospital_action_disease_report_in_doctor_list)d"
                             string="Report on diseases"
                             type="action"/>
@@ -22,25 +23,27 @@
         </field>
     </record>
 
+    <!-- Form view for detailed doctor information -->
     <record id="view_doctor_form" model="ir.ui.view">
         <field name="name">Doctor Form</field>
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <form>
                 <header>
-<!--                    put into print -->
                     <button name="%(hr_hospital_action_disease_report_in_doctor_list)d"
                             string="Report on diseases"
                             type="action"/>
                 </header>
                 <sheet>
                     <group>
+                        <!-- Personal and contact details group -->
                         <group>
                             <field name="first_name"/>
                             <field name="last_name"/>
                             <field name="phone"/>
                             <field name="gender" widget="radio"/>
                         </group>
+                        <!-- Professional information and mentor/intern details -->
                         <group>
                             <field name="photo"
                                    widget="image"
@@ -52,6 +55,7 @@
                         </group>
                     </group>
                     <notebook>
+                        <!-- Page to manage assigned interns for a mentor doctor -->
                         <page string="Interns">
                             <field name="intern_ids" mode="kanban">
                                 <kanban default_group_by="specialty_id">
@@ -86,7 +90,7 @@
         </field>
     </record>
 
-    <!-- Пошук -->
+    <!-- Search panel for filtering Doctors by type -->
     <record id="hr_hospital_doctor_search" model="ir.ui.view">
         <field name="name">Doctor Search</field>
         <field name="model">hr_hospital.doctor</field>
@@ -98,7 +102,7 @@
         </field>
     </record>
 
-    <!--kanban-->
+    <!-- Kanban view for Doctors grouped by specialty for a quick overview -->
     <record id="hr_hospital_doctor_kanban" model="ir.ui.view">
         <field name="name">Kanban</field>
         <field name="model">hr_hospital.doctor</field>
@@ -113,6 +117,7 @@
                 <field name="phone"/>
                 <field name="specialty_id"/>
                 <field name="is_intern"/>
+                <!-- Template to customize the kanban card layout -->
                 <templates>
                     <t t-name="kanban-menu">
                         <t t-if="widget.editable"><a role="menuitem" type="edit" class="dropdown-item">Edit</a></t>
@@ -143,10 +148,10 @@
                             <t t-name="kanban-menu">
                                 <div class="btn-group" role="group" aria-label="Kanban Menu Actions">
                                     <t t-if="widget.editable">
-                                        <a role="menuitem" type="edit" class="btn btn-primary btn-sm">Edit</a>
+                                        <a role="button" type="edit" class="btn btn-primary btn-sm">Edit</a>
                                     </t>
                                     <t t-if="widget.deletable">
-                                        <a role="menuitem" type="delete" class="btn btn-danger btn-sm">Delete</a>
+                                        <a role="button" type="delete" class="btn btn-danger btn-sm">Delete</a>
                                     </t>
                                 </div>
                             </t>
@@ -157,6 +162,7 @@
         </field>
     </record>
 
+    <!-- Action to open Doctor views (tree, form, kanban) -->
     <record id="action_hr_hospital_doctor" model="ir.actions.act_window">
         <field name="name">Doctors</field>
         <field name="type">ir.actions.act_window</field>

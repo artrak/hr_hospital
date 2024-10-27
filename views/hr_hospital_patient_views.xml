@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- Деревоподібне представлення для моделі Пацієнт -->
+    <!-- Tree view for displaying a list of patients -->
     <record id="view_patient_tree" model="ir.ui.view">
         <field name="name">Patient List</field>
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
                 <header>
+                    <!-- Button to change the personal doctor of a patient -->
                     <button name="%(hr_hospital_personal_doctor_wizard_action)d"
                             string="Change personal doctor"
                             type="action"/>
@@ -25,13 +26,14 @@
         </field>
     </record>
 
-    <!-- Формове представлення для моделі Пацієнт -->
+    <!-- Form view for detailed patient information and actions -->
     <record id="view_patient_form" model="ir.ui.view">
         <field name="name">Patient Form</field>
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <!-- Buttons to view and add visits -->
                     <button name="show_patient_visits"
                             string="Show patient visits"
                             type="object"
@@ -65,6 +67,7 @@
                         </group>
                     </group>
                     <notebook>
+                        <!-- Page displaying the patient's diagnosis history -->
                         <page string="Diagnosis History">
                             <field name="diagnosis_history_ids">
                                 <tree>
@@ -80,7 +83,7 @@
         </field>
     </record>
 
-    <!-- Пошук -->
+    <!-- Search view for filtering and finding patients -->
     <record id="hr_hospital_patient_search" model="ir.ui.view">
         <field name="name">Patient Search</field>
         <field name="model">hr_hospital.patient</field>
@@ -93,7 +96,7 @@
         </field>
     </record>
 
-    <!-- Дія, що відкриває список Пацієнтів -->
+    <!-- Action to open Patient views (tree, form) -->
     <record id="action_hr_hospital_patient" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hr_hospital.patient</field>

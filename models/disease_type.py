@@ -2,6 +2,17 @@ from odoo import models, fields
 
 
 class DiseaseType(models.Model):
+    """
+    Model representing a category or type of disease in the hospital system.
+
+    DiseaseType is used for classifying diseases into different types,
+    aiding in organized disease management within the system.
+
+    Fields:
+        - name (Char): The name of the disease type.
+        - description (Text): Description of the disease type.
+        - disease_ids (One2many): List of diseases categorized under this type.
+    """
     _name = 'hr_hospital.disease.type'
     _description = 'Disease Type'
 

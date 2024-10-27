@@ -1,11 +1,11 @@
 <odoo>
     <record id="disease_type_infectious" model="hr_hospital.disease.type">
         <field name="name">Infectious Disease</field>
-        <field name="description">Diseases caused by organisms such as bacteria, viruses, fungi, or parasites.</field>
+        <field name="description">Захворювання, викликані такими організмами, як бактерії, віруси, грибки або паразити.</field>
     </record>
 
     <record id="disease_type_chronic" model="hr_hospital.disease.type">
-        <field name="name">Chronic Disease</field>
+        <field name="name">Хронічна хвороба</field>
         <field name="description">Diseases that persist for a long time or are constantly recurring.</field>
     </record>
 
