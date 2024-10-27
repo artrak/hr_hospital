@@ -1,9 +1,8 @@
 {
     'name': 'Hospital Management',
     'summary': 'Module to manage hospital records for doctors and patients',
-    # 'description': 'Детальна інформація знаходиться в README.rst',
     'author': 'Artemius',
-    'website': 'https://github.com/artrak/hr_hospital/',
+    'website': 'https://github.com/artrak/hr_hospital',
     'category': 'Healthcare',
     'license': 'OPL-1',
     'version': '17.0.1.1.0',
@@ -17,7 +16,9 @@
     },
 
     'data': [
+        'security/hr_hospital_groups.xml',
         'security/ir.model.access.csv',
+        'security/hr_hospital_security.xml',
 
         'wizard/hr_hospital_disease_report_wizard_views.xml',
         'wizard/hr_hospital_mass_reassign_doctor_wizard_views.xml',

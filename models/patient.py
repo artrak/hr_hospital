@@ -5,6 +5,24 @@ _logger = logging.getLogger(__name__)
 
 
 class Patient(models.Model):
+    """
+    Model representing a patient in the hospital system.
+
+    Each patient record includes basic personal and contact details,
+    and fields for linking to their personal doctor, diagnosis history,
+    and emergency contacts.
+
+    Fields:
+        - personal_doctor_id (Many2one): The assigned personal doctor
+        of the patient.
+        - birth_date (Date): Date of birth of the patient.
+        - passport_details (Char): Passport or ID details of the patient.
+        - contact_person (Char): Emergency contact for the patient.
+        - age (Integer): Computed field representing the age of the patient.
+        - disease_id (Many2one): Reference to the patient’s primary disease.
+        - diagnosis_history_ids (One2many): History of diagnoses
+        for the patient.
+    """
     _inherit = 'hr_hospital.person'
     _name = 'hr_hospital.patient'
     _description = 'Patient'
@@ -40,6 +58,11 @@ class Patient(models.Model):
     )
 
     def add_visit(self):
+        """
+        Opens a form to quickly create a visit for the patient.
+        Returns:
+            dict: Action to open the visit creation form.
+        """
         self.ensure_one()
         return {
             'type': 'ir.actions.act_window',
@@ -55,6 +78,9 @@ class Patient(models.Model):
 
     @api.depends('birth_date')
     def _compute_age(self):
+        """
+        Calculates the age of the patient based on birth_date.
+        """
         for record in self:
             if record.birth_date:
                 record.age = relativedelta(
@@ -63,17 +89,21 @@ class Patient(models.Model):
             else:
                 record.age = 0
 
-    # loging for create
     @api.model
     def create(self, vals):
+        """
+        Logs the creation of a new patient record.
+        """
         patient = super(Patient, self).create(vals)
         _logger.info(f"New patient created: "
                      f"{patient.first_name} {patient.last_name}, "
                      f"ID: {patient.id}")
         return patient
 
-    # loging for write
     def write(self, vals):
+        """
+        Logs updates made to the patient record.
+        """
         result = super(Patient, self).write(vals)
         _logger.info(f"Patient updated: "
                      f"{self.first_name} {self.last_name}, "
@@ -81,6 +111,9 @@ class Patient(models.Model):
         return result
 
     def open_patient_visit_act_window_calendar(self):
+        """
+        Opens a calendar view of the patient's visits filtered by their doctor.
+        """
         action = {
             'name': 'Patient visit',
             'type': 'ir.actions.act_window',
@@ -96,6 +129,9 @@ class Patient(models.Model):
         return action
 
     def show_patient_visits(self):
+        """
+        Shows a list of all visits for the current patient.
+        """
         self.ensure_one()
         return {
             'type': 'ir.actions.act_window',

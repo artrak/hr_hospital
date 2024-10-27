@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- Деревоподібне представлення для моделі Види захворювань -->
+    <!-- Tree view for Disease model to display disease hierarchy and type -->
     <record id="view_disease_tree" model="ir.ui.view">
         <field name="name">Disease tree</field>
         <field name="model">hr_hospital.disease</field>
@@ -9,12 +9,13 @@
                 <field name="name"/>
                 <field name="description"/>
                 <field name="disease_type_id"/>
+                <!-- Hierarchy displayed by parent disease -->
                 <field name="parent_id" invisible="0"/>
             </tree>
         </field>
     </record>
 
-    <!-- Панель пошуку -->
+    <!-- Search panel for filtering diseases by type -->
     <record id="hr_hospital_disease_search" model="ir.ui.view">
         <field name="name">hr.hospital.disease.search (hr_hospital_disease)</field>
         <field name="model">hr_hospital.disease</field>
@@ -27,7 +28,7 @@
         </field>
     </record>
 
-    <!-- Формове представлення для моделі Види захворювань -->
+    <!-- Form view for detailed Disease information editing -->
     <record id="view_disease_form" model="ir.ui.view">
         <field name="name">Disease Form</field>
         <field name="model">hr_hospital.disease</field>
@@ -62,6 +63,7 @@
         </field>
     </record>
 
+    <!-- Graph view for disease analysis -->
     <record id="hr_hospital_disease_graph" model="ir.ui.view">
         <field name="name">Disease Graph</field>
         <field name="model">hr_hospital.disease</field>
@@ -75,7 +77,7 @@
         </field>
     </record>
 
-    <!-- Дія, що відкриває список Видів захворювань -->
+    <!-- Action to open Disease views (tree, form, pivot, graph) -->
     <record id="action_hr_hospital_disease" model="ir.actions.act_window">
         <field name="name">Diseases</field>
         <field name="res_model">hr_hospital.disease</field>

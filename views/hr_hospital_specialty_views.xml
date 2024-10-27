@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Tree View (список спеціальностей) -->
+    <!-- Tree view for listing doctor specialties -->
     <record id="view_specialty_tree" model="ir.ui.view">
         <field name="name">specialty.tree</field>
         <field name="model">hr_hospital.specialty</field>
@@ -12,7 +12,7 @@
         </field>
     </record>
 
-    <!-- Form View (форма для редагування спеціальностей) -->
+    <!-- Form view for editing and adding specialties -->
     <record id="view_specialty_form" model="ir.ui.view">
         <field name="name">Specialty Form</field>
         <field name="model">hr_hospital.specialty</field>
@@ -28,6 +28,7 @@
         </field>
     </record>
 
+    <!-- Action to open Specialty views (tree, form) -->
     <record id="action_hr_hospital_specialty" model="ir.actions.act_window">
         <field name="name">Specialties</field>
         <field name="res_model">hr_hospital.specialty</field>

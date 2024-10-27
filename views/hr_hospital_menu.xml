@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- Main menu for Hospital Management -->
     <menuitem
         id="hr_hospital_menu_root"
         web_icon="odoo_school_library,static/description/icon.png"
         name="Hospital Management"
         sequence="10"/>
 
+    <!-- Submenus for various sections in Hospital Management -->
     <menuitem
         id="hr_hospital_menu_patients"
         name="Patients"

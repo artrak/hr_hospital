@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <odoo>
-        <!-- Деревоподібне представлення для моделі Візити -->
+        <!-- Tree view for displaying a list of visits -->
         <record id="view_visit_tree" model="ir.ui.view">
             <field name="name">Visit List</field>
             <field name="model">hr_hospital.visit</field>
             <field name="arch" type="xml">
                 <tree>
+                    <!-- Display key details for each visit entry -->
                     <field name="patient_id"/>
                     <field name="doctor_id"/>
                     <field name="doctor_approved"/>
@@ -15,17 +16,19 @@
             </field>
         </record>
 
-        <!-- Формове представлення для моделі Візити -->
+        <!-- Form view for detailed visit information -->
         <record id="view_visit_form" model="ir.ui.view">
             <field name="name">Visit Form</field>
             <field name="model">hr_hospital.visit</field>
             <field name="arch" type="xml">
                 <form>
                     <header>
+                        <!-- Status bar to display the status of the visit -->
                         <field name="visit_status" widget="statusbar" options="{'clickable': '1'}"/>
                     </header>
                     <sheet>
                         <group>
+                            <!-- Patient and doctor details along with date information -->
                             <field name="patient_id"/>
                             <field name="doctor_id"/>
                             <field name="initial_doctor_visit"/>
@@ -37,6 +40,7 @@
                         </group>
 
                         <notebook>
+                            <!-- Page to display diagnoses associated with the visit -->
                             <page string="Diagnoses">
                                <field name="diagnosis_ids" widget="one2many_list"/>
                            </page>
@@ -47,7 +51,7 @@
             </field>
         </record>
 
-        <!-- Календар -->
+        <!-- Calendar view for scheduling and visualizing visit dates -->
         <record id="hr_hospital_visit_calendar" model="ir.ui.view">
             <field name="name">Visit Calendar</field>
             <field name="model">hr_hospital.visit</field>
@@ -60,7 +64,7 @@
             </field>
         </record>
 
-        <!-- Пошук -->
+        <!-- Search view to filter visits by patient, doctor, and visit status -->
         <record id="hr_hospital_visit_search" model="ir.ui.view">
             <field name="name">Visit Search</field>
             <field name="model">hr_hospital.visit</field>
@@ -77,7 +81,7 @@
         </record>
 
 
-        <!-- Зведена таблиця для візитів за лікарем та статусом за поточний місяць -->
+        <!-- Pivot view for analyzing visit counts by doctor and visit status per month -->
         <record id="hr_hospital_visit_pivot" model="ir.ui.view">
             <field name="name">Visit Pivot</field>
             <field name="model">hr_hospital.visit</field>
@@ -93,7 +97,7 @@
 
 
 
-        <!-- Дія, що відкриває список Візитів -->
+        <!-- Action to open Visit views (tree, form, calendar, pivot) -->
         <record id="action_hr_hospital_visit" model="ir.actions.act_window">
             <field name="name">Visits</field>
             <field name="res_model">hr_hospital.visit</field>

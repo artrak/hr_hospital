@@ -6,6 +6,25 @@ from odoo import _
 
 
 class Visit(models.Model):
+    """
+    Model representing a patient's visit within the hospital system.
+
+    Visits are associated with patients, doctors, and may include diagnoses.
+    This model supports tracking visit status, scheduling, and the assignment
+    of doctors, including approvals by senior doctors.
+
+    Fields:
+        - patient_id (Many2one): The patient attending the visit.
+        - doctor_id (Many2one): The doctor assigned to the visit.
+        - initial_doctor_visit (Char): Initial doctor handling the visit.
+        - doctor_approved (Char): Doctor who approved the visit, if required.
+        - visit_status (Selection): Current status of the visit
+        (e.g., scheduled, completed).
+        - scheduled_date (Datetime): Scheduled date and time of the visit.
+        - visit_date (Datetime): Actual date and time of the visit.
+        - notes (Text): Additional notes about the visit.
+        - diagnosis_ids (One2many): List of diagnoses made during the visit.
+    """
     _name = 'hr_hospital.visit'
     _description = 'Patient Visit'
 
@@ -59,32 +78,51 @@ class Visit(models.Model):
     )
 
     def generate_random_date(self):
-        """Generate a random date within a range of 30 days from today."""
+        """
+        Generates a random date within the next 30 days.
+        Returns:
+            str: Formatted random date and time string.
+        """
         today = datetime.today()
         days_offset = random.randint(0, 30)
         random_date = today + timedelta(days=days_offset)
         return random_date.strftime('%Y-%m-%d %H:%M:%S')
 
-    # Заборона змін для час/дата/лікаря візитів, які вже відбулися
     @api.onchange('visit_date', 'doctor_id', 'visit_status')
     def _onchange_visit_date(self):
+        """
+        Restricts modification of visit date, doctor, or status
+        if the visit is completed and the doctor is an intern.
+        Raises:
+            ValidationError: If attempting to modify details
+            of a completed visit.
+        """
         self.ensure_one()
         if self.visit_status == 'completed' and self.doctor_id.is_intern:
             raise ValidationError(_(
                 "You cannot modify the scheduled date "
                 "or doctor for a completed visit."))
 
-    # Заборона видаляти візити з діагнозами.
     def unlink(self):
+        """
+        Prevents deletion of visits that have associated diagnoses.
+        Raises:
+            ValidationError: If there are diagnoses linked to the visit.
+        """
         for visit in self:
             if visit.diagnosis_ids:
                 raise ValidationError(_("You cannot delete "
                                       "visits with diagnoses."))
             return super(Visit, self).unlink()  # Викликаємо super
 
-    # Заборона архівувати візити з діагнозами.
     @api.constrains('active')
     def _check_active(self):
+        """
+        Restricts archiving visits that have diagnoses.
+        Raises:
+            ValidationError: If attempting to archive
+            a visit with linked diagnoses.
+        """
         for visit in self:
             if not visit.active and visit.diagnosis_ids:
                 raise ValidationError(_(
@@ -92,10 +130,14 @@ class Visit(models.Model):
                     "Please remove diagnoses before archiving."
                 ))
 
-    # Блокувати, щоб не можна було записати одного пацієнта
-    # до одного лікаря в один день більше одного разу.
     @api.constrains('patient_id', 'doctor_id', 'scheduled_date')
     def _check_duplicate_visit(self):
+        """
+        Prevents scheduling multiple visits for the same patient
+        with the same doctor on the same day.
+        Raises:
+            ValidationError: If there are duplicate visits on the same day.
+        """
         for visit in self:
             existing_visits = self.env['hr_hospital.visit'].search_count([
                 ('patient_id', '=', visit.patient_id.id),
@@ -109,9 +151,13 @@ class Visit(models.Model):
                     "A patient cannot have multiple visits "
                     "with the same doctor on the same day."))
 
-    # Зберігаємо ім'я лікаря під час створення запису
     @api.model
     def create(self, vals):
+        """
+        Sets the initial doctor’s name if not provided and validates
+        that an intern cannot be assigned as the initial doctor when
+        the field is already populated.
+        """
         if 'doctor_id' in vals:
             doctor = self.env['hr_hospital.doctor'].browse(vals['doctor_id'])
 
@@ -129,9 +175,15 @@ class Visit(models.Model):
 
         return super(Visit, self).create(vals)
 
-    # Зберігаємо ім'я лікаря після вибору лікаря
     @api.constrains('doctor_id', 'visit_status')
     def _onchange_doctor_id(self):
+        """
+        Sets the doctor's name in the doctor_approved field once
+        the visit is completed and approved.
+        Raises:
+            ValidationError: If attempting to re-approve
+            an already approved visit.
+        """
         for visit in self:
             if visit.doctor_id:
                 doctor = visit.doctor_id
